@@ -1,9 +1,9 @@
 #! /bin/bash
 
 #PBS -q short
-#PBS -N heh+_noci
+#PBS -N h2_noci
 #PBS -j oe
-#PBS -o heh+_noci.qlog
+#PBS -o h2_noci.qlog
 #PBS -l mem=12G
 #PBS -l walltime=24:00:00
 #PBS -l ncpus=8
@@ -23,6 +23,5 @@ cd $PBS_O_WORKDIR
 #
 # Run Interactive basin-hopping algorithm
 #
-~/td_code/TDCIS/tdcis.exe -f heh+.txt --print-level 3 --sub-levels [1] --ci-type noci --pulse-shape continuous --field-size 0.089 --t0 0 --sigma 8.05 --time-step 1.61 --omega 0.977 --simulation-time 10.0 > heh+.real
-
+~/td_code/TDCIS/tdcis.exe -f h2_noci.txt --print-level 3 --sub-levels [1] --ci-type noci --pulse-shape continuous --field-size 0.089 --t0 0 --sigma 8.05 --time-step 1.61 --omega 0.977 --simulation-time 10.0 > h2.real
 

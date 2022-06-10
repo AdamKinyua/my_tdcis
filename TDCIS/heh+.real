@@ -1,0 +1,1459 @@
+
+ *************************************************************************
+  Real-Time Truncated Configuration Interaction Time Evolution Calculator
+ *************************************************************************
+
+                              Version 21.10.1
+
+ L. M. Thompson, Louisville KY, 2021.
+
+ ######################################################
+ ## Initial Iteration using Input nuclear parameters ##
+ ######################################################
+ Coordinates
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+       3      0.000000      1.756965
+           NUCLEAR CARTESIAN COORDINATES          
+ -------------------------------------------------
+  Element              Coordinates (Ang)           
+                 X             Y             Z
+ -------------------------------------------------
+     He      0.000000      0.000000      0.000000
+     H       0.000000      0.000000      0.929746
+ -------------------------------------------------
+ Nuclear Repulsion Energy (au) =       1.138326
+ 
+ Nuclear dipole
+       1        0.000000
+       2        0.000000
+       3        1.756965
+ 
+ Building nonorthogonal CI Hamiltonian, CI overlap and CI dipole matrices
+ Diagonalizing CI Hamiltonian
+
+ CI Eigenvalues
+       1       -3.992695
+ 
+ CI Dipole Eigenvalues axis 1
+       1        0.000000
+ 
+ State basis dipoles and transition dipoles on axis 1
+                  1
+       1      0.000000
+ 
+ CI Dipole Eigenvalues axis 2
+       1        0.000000
+ 
+ State basis dipoles and transition dipoles on axis 2
+                  1
+       1      0.000000
+ 
+ CI Dipole Eigenvalues axis 3
+       1        1.409992
+ 
+ State basis dipoles and transition dipoles on axis 3
+                  1
+       1      1.409992
+ 
+ Defaulting to t=0 field aligned along z-axis.
+
+ ############################################
+ #                                          #
+ #            INITIAL CONDITIONS            #
+ #            ------------------            #
+ #                                          #
+ # 1) Simulation time:       10.000000 au   #
+ # 2) Number of steps:               6      #
+ # 3) Time step:              1.610000 au   #
+ # 4) State weights:                        #
+ #                          1 = 1.0000      #
+ # 5) Field parameters:                     #
+ #    Pulse shape:          continuous      #
+ #    Magnitude:              0.089000 au   #
+ #    Field X:                0.000000      #
+ #    Field Y:                0.000000      #
+ #    Field Z:                0.089000      #
+ #    t0:                     0.000000      #
+ #    omega:                  0.977000      #
+ #    sigma:                  8.050000      #
+ #    beta:                   3.000000      #
+ #                                          #
+ ############################################
+ 
+ STARTING TIME PROPAGATION
+
+ ============================================
+
+ Time step:     0.000000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 1 TD State coefficients
+  1 = 1.000000
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 1.000000
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                  1             2
+       1      1.000000     -0.000000
+       2     -0.000000      0.000000
+ 
+ AO Density matrix
+ 
+                  1             2
+       1      0.810301      0.174961
+       2      0.174961      0.037778
+ 
+ Total dipole
+       1        0.000000
+       2        0.000000
+       3        1.409992
+ 
+ ============================================
+
+ Time step:     1.610000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.089000
+ 
+ Largest 1 TD State coefficients
+  1 = 0.940366 +0.340164i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.940366 +0.340164i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000   -0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i    -0.00000   -0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030   -0.00000i     0.17496   -0.00000i
+       2     0.17496   -0.00000i     0.03778   -0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.40999    0.00000i
+ 
+ ============================================
+
+ Time step:     3.220000 au
+
+ Applied field vector
+       1       -0.000000
+       2       -0.000000
+       3       -0.000387
+ 
+ Largest 1 TD State coefficients
+  1 = 0.881736 +0.471743i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.881736 +0.471743i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000   -0.00000i
+       2    -0.00000   -0.00000i    -0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.40999   -0.00000i
+ 
+ ============================================
+
+ Time step:     4.830000 au
+
+ Applied field vector
+       1       -0.000000
+       2       -0.000000
+       3       -0.088998
+ 
+ Largest 1 TD State coefficients
+  1 = 0.907170 +0.420764i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.907170 +0.420764i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000   -0.00000i
+       2    -0.00000   -0.00000i    -0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.40999   -0.00000i
+ 
+ ============================================
+
+ Time step:     6.440000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000774
+ 
+ Largest 1 TD State coefficients
+  1 = 0.835861 +0.548941i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.835861 +0.548941i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   -0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i    -0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.40999    0.00000i
+ 
+ ============================================
+
+ Time step:     8.050000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 1 TD State coefficients
+  1 = 0.747736 +0.663997i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.747736 +0.663997i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000   -0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i    -0.00000   -0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030   -0.00000i     0.17496   -0.00000i
+       2     0.17496   -0.00000i     0.03778   -0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.40999    0.00000i
+ 
+ ============================================
+
+                 FINAL TIME STEP
+
+ ============================================
+
+ Time step:     9.660000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 1 TD State coefficients
+  1 = 0.643905 +0.765105i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.643905 +0.765105i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   -0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i    -0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.40999    0.00000i
+ 
+ 
+ 
+ ######################################################
+ ######   Nuclear Step:                     1 #########
+ ######################################################
+ Coordinates
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+       3      0.000000      1.756965
+ Z_init:    1.7569652298208238     
+ Z_finl:    1.8569652298208239     
+ Coordinates
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+       3      0.000000      1.856965
+ finished executing Gaussian
+           NUCLEAR CARTESIAN COORDINATES          
+ -------------------------------------------------
+  Element              Coordinates (Ang)           
+                 X             Y             Z
+ -------------------------------------------------
+     He      0.000000      0.000000      0.000000
+     H       0.000000      0.000000      0.982663
+ -------------------------------------------------
+ Nuclear Repulsion Energy (au) =       1.077026
+ 
+ Nuclear dipole
+       1        0.000000
+       2        0.000000
+       3        1.856965
+ 
+ Building nonorthogonal CI Hamiltonian, CI overlap and CI dipole matrices
+ Diagonalizing CI Hamiltonian
+
+ CI Eigenvalues
+       1       -3.992695
+ 
+ CI Dipole Eigenvalues axis 1
+       1        0.000000
+ 
+ State basis dipoles and transition dipoles on axis 1
+                  1
+       1      0.000000
+ 
+ CI Dipole Eigenvalues axis 2
+       1        0.000000
+ 
+ State basis dipoles and transition dipoles on axis 2
+                  1
+       1      0.000000
+ 
+ CI Dipole Eigenvalues axis 3
+       1        1.509992
+ 
+ State basis dipoles and transition dipoles on axis 3
+                  1
+       1      1.509992
+ 
+ Defaulting to t=0 field aligned along z-axis.
+
+ ############################################
+ #                                          #
+ #            INITIAL CONDITIONS            #
+ #            ------------------            #
+ #                                          #
+ # 1) Simulation time:       10.000000 au   #
+ # 2) Number of steps:               6      #
+ # 3) Time step:              1.610000 au   #
+ # 4) State weights:                        #
+ #                          1 = 1.0000      #
+ #                          1 = 1.0000      #
+ # 5) Field parameters:                     #
+ #    Pulse shape:          continuous      #
+ #    Magnitude:              0.089000 au   #
+ #    Field X:                0.000000      #
+ #    Field Y:                0.000000      #
+ #    Field Z:                0.089000      #
+ #    t0:                     0.000000      #
+ #    omega:                  0.977000      #
+ #    sigma:                  8.050000      #
+ #    beta:                   3.000000      #
+ #                                          #
+ ############################################
+ 
+ STARTING TIME PROPAGATION
+
+ ============================================
+
+ Time step:     0.000000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 1 TD State coefficients
+  1 = 1.000000
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 1.000000
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                  1             2
+       1      1.000000     -0.000000
+       2     -0.000000      0.000000
+ 
+ AO Density matrix
+ 
+                  1             2
+       1      0.810301      0.174961
+       2      0.174961      0.037778
+ 
+ Total dipole
+       1        0.000000
+       2        0.000000
+       3        1.509992
+ 
+ ============================================
+
+ Time step:     1.610000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.089000
+ 
+ Largest 1 TD State coefficients
+  1 = 0.935396 +0.353603i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.935396 +0.353603i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i     0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.50999    0.00000i
+ 
+ ============================================
+
+ Time step:     3.220000 au
+
+ Applied field vector
+       1       -0.000000
+       2       -0.000000
+       3       -0.000387
+ 
+ Largest 1 TD State coefficients
+  1 = 0.874916 +0.484274i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.874916 +0.484274i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000   -0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i     0.00000   -0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030   -0.00000i     0.17496   -0.00000i
+       2     0.17496   -0.00000i     0.03778   -0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.50999    0.00000i
+ 
+ ============================================
+
+ Time step:     4.830000 au
+
+ Applied field vector
+       1       -0.000000
+       2       -0.000000
+       3       -0.088998
+ 
+ Largest 1 TD State coefficients
+  1 = 0.907196 +0.420707i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.907196 +0.420707i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i    -0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.50999    0.00000i
+ 
+ ============================================
+
+ Time step:     6.440000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000774
+ 
+ Largest 1 TD State coefficients
+  1 = 0.835826 +0.548994i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.835826 +0.548994i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i    -0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.50999    0.00000i
+ 
+ ============================================
+
+ Time step:     8.050000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 1 TD State coefficients
+  1 = 0.747694 +0.664043i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.747694 +0.664043i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000   -0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i     0.00000   -0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030   -0.00000i     0.17496   -0.00000i
+       2     0.17496   -0.00000i     0.03778   -0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.50999    0.00000i
+ 
+ ============================================
+
+                 FINAL TIME STEP
+
+ ============================================
+
+ Time step:     9.660000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 1 TD State coefficients
+  1 = 0.643857 +0.765146i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.643857 +0.765146i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i     0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.50999    0.00000i
+ 
+ 
+ 
+ ######################################################
+ ######   Nuclear Step:                     2 #########
+ ######################################################
+ Coordinates
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+       3      0.000000      1.856965
+ Z_init:    1.8569652298208239     
+ Z_finl:    1.9569652298208240     
+ Coordinates
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+       3      0.000000      1.956965
+ finished executing Gaussian
+           NUCLEAR CARTESIAN COORDINATES          
+ -------------------------------------------------
+  Element              Coordinates (Ang)           
+                 X             Y             Z
+ -------------------------------------------------
+     He      0.000000      0.000000      0.000000
+     H       0.000000      0.000000      1.035581
+ -------------------------------------------------
+ Nuclear Repulsion Energy (au) =       1.021991
+ 
+ Nuclear dipole
+       1        0.000000
+       2        0.000000
+       3        1.956965
+ 
+ Building nonorthogonal CI Hamiltonian, CI overlap and CI dipole matrices
+ Diagonalizing CI Hamiltonian
+
+ CI Eigenvalues
+       1       -3.992695
+ 
+ CI Dipole Eigenvalues axis 1
+       1        0.000000
+ 
+ State basis dipoles and transition dipoles on axis 1
+                  1
+       1      0.000000
+ 
+ CI Dipole Eigenvalues axis 2
+       1        0.000000
+ 
+ State basis dipoles and transition dipoles on axis 2
+                  1
+       1      0.000000
+ 
+ CI Dipole Eigenvalues axis 3
+       1        1.609992
+ 
+ State basis dipoles and transition dipoles on axis 3
+                  1
+       1      1.609992
+ 
+ Defaulting to t=0 field aligned along z-axis.
+
+ ############################################
+ #                                          #
+ #            INITIAL CONDITIONS            #
+ #            ------------------            #
+ #                                          #
+ # 1) Simulation time:       10.000000 au   #
+ # 2) Number of steps:               6      #
+ # 3) Time step:              1.610000 au   #
+ # 4) State weights:                        #
+ #                          1 = 1.0000      #
+ #                          1 = 1.0000      #
+ #                          1 = 1.0000      #
+ # 5) Field parameters:                     #
+ #    Pulse shape:          continuous      #
+ #    Magnitude:              0.089000 au   #
+ #    Field X:                0.000000      #
+ #    Field Y:                0.000000      #
+ #    Field Z:                0.089000      #
+ #    t0:                     0.000000      #
+ #    omega:                  0.977000      #
+ #    sigma:                  8.050000      #
+ #    beta:                   3.000000      #
+ #                                          #
+ ############################################
+ 
+ STARTING TIME PROPAGATION
+
+ ============================================
+
+ Time step:     0.000000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 1 TD State coefficients
+  1 = 1.000000
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 1.000000
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                  1             2
+       1      1.000000     -0.000000
+       2     -0.000000      0.000000
+ 
+ AO Density matrix
+ 
+                  1             2
+       1      0.810301      0.174961
+       2      0.174961      0.037778
+ 
+ Total dipole
+       1        0.000000
+       2        0.000000
+       3        1.609992
+ 
+ ============================================
+
+ Time step:     1.610000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.089000
+ 
+ Largest 1 TD State coefficients
+  1 = 0.930233 +0.366969i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.930233 +0.366969i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i    -0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.60999    0.00000i
+ 
+ ============================================
+
+ Time step:     3.220000 au
+
+ Applied field vector
+       1       -0.000000
+       2       -0.000000
+       3       -0.000387
+ 
+ Largest 1 TD State coefficients
+  1 = 0.867919 +0.496706i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.867919 +0.496706i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000   -0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i    -0.00000   -0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030   -0.00000i     0.17496   -0.00000i
+       2     0.17496   -0.00000i     0.03778   -0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.60999    0.00000i
+ 
+ ============================================
+
+ Time step:     4.830000 au
+
+ Applied field vector
+       1       -0.000000
+       2       -0.000000
+       3       -0.088998
+ 
+ Largest 1 TD State coefficients
+  1 = 0.907223 +0.420651i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.907223 +0.420651i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i    -0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.60999    0.00000i
+ 
+ ============================================
+
+ Time step:     6.440000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000774
+ 
+ Largest 1 TD State coefficients
+  1 = 0.835792 +0.549046i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.835792 +0.549046i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i     0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.60999    0.00000i
+ 
+ ============================================
+
+ Time step:     8.050000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 1 TD State coefficients
+  1 = 0.747653 +0.664090i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.747653 +0.664090i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000   -0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i    -0.00000   -0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030   -0.00000i     0.17496   -0.00000i
+       2     0.17496   -0.00000i     0.03778   -0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.60999    0.00000i
+ 
+ ============================================
+
+                 FINAL TIME STEP
+
+ ============================================
+
+ Time step:     9.660000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 1 TD State coefficients
+  1 = 0.643810 +0.765186i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.643810 +0.765186i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   -0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000   -0.00000i
+       2    -0.00000   -0.00000i    -0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.60999   -0.00000i
+ 
+ 
+ 
+ ######################################################
+ ######   Nuclear Step:                     3 #########
+ ######################################################
+ Coordinates
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+       3      0.000000      1.956965
+ Z_init:    1.9569652298208240     
+ Z_finl:    2.0569652298208241     
+ Coordinates
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+       3      0.000000      2.056965
+ finished executing Gaussian
+           NUCLEAR CARTESIAN COORDINATES          
+ -------------------------------------------------
+  Element              Coordinates (Ang)           
+                 X             Y             Z
+ -------------------------------------------------
+     He      0.000000      0.000000      0.000000
+     H       0.000000      0.000000      1.088499
+ -------------------------------------------------
+ Nuclear Repulsion Energy (au) =       0.972306
+ 
+ Nuclear dipole
+       1        0.000000
+       2        0.000000
+       3        2.056965
+ 
+ Building nonorthogonal CI Hamiltonian, CI overlap and CI dipole matrices
+ Diagonalizing CI Hamiltonian
+
+ CI Eigenvalues
+       1       -3.992695
+ 
+ CI Dipole Eigenvalues axis 1
+       1        0.000000
+ 
+ State basis dipoles and transition dipoles on axis 1
+                  1
+       1      0.000000
+ 
+ CI Dipole Eigenvalues axis 2
+       1        0.000000
+ 
+ State basis dipoles and transition dipoles on axis 2
+                  1
+       1      0.000000
+ 
+ CI Dipole Eigenvalues axis 3
+       1        1.709992
+ 
+ State basis dipoles and transition dipoles on axis 3
+                  1
+       1      1.709992
+ 
+ Defaulting to t=0 field aligned along z-axis.
+
+ ############################################
+ #                                          #
+ #            INITIAL CONDITIONS            #
+ #            ------------------            #
+ #                                          #
+ # 1) Simulation time:       10.000000 au   #
+ # 2) Number of steps:               6      #
+ # 3) Time step:              1.610000 au   #
+ # 4) State weights:                        #
+ #                          1 = 1.0000      #
+ #                          1 = 1.0000      #
+ #                          1 = 1.0000      #
+ #                          1 = 1.0000      #
+ # 5) Field parameters:                     #
+ #    Pulse shape:          continuous      #
+ #    Magnitude:              0.089000 au   #
+ #    Field X:                0.000000      #
+ #    Field Y:                0.000000      #
+ #    Field Z:                0.089000      #
+ #    t0:                     0.000000      #
+ #    omega:                  0.977000      #
+ #    sigma:                  8.050000      #
+ #    beta:                   3.000000      #
+ #                                          #
+ ############################################
+ 
+ STARTING TIME PROPAGATION
+
+ ============================================
+
+ Time step:     0.000000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 1 TD State coefficients
+  1 = 1.000000
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 1.000000
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                  1             2
+       1      1.000000     -0.000000
+       2     -0.000000      0.000000
+ 
+ AO Density matrix
+ 
+                  1             2
+       1      0.810301      0.174961
+       2      0.174961      0.037778
+ 
+ Total dipole
+       1        0.000000
+       2        0.000000
+       3        1.709992
+ 
+ ============================================
+
+ Time step:     1.610000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.089000
+ 
+ Largest 1 TD State coefficients
+  1 = 0.924879 +0.380261i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.924879 +0.380261i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   -0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i     0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.70999    0.00000i
+ 
+ ============================================
+
+ Time step:     3.220000 au
+
+ Applied field vector
+       1       -0.000000
+       2       -0.000000
+       3       -0.000387
+ 
+ Largest 1 TD State coefficients
+  1 = 0.860744 +0.509038i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.860744 +0.509038i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   +0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i    -0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.70999    0.00000i
+ 
+ ============================================
+
+ Time step:     4.830000 au
+
+ Applied field vector
+       1       -0.000000
+       2       -0.000000
+       3       -0.088998
+ 
+ Largest 1 TD State coefficients
+  1 = 0.907249 +0.420595i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.907249 +0.420595i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   -0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i    -0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.70999    0.00000i
+ 
+ ============================================
+
+ Time step:     6.440000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000774
+ 
+ Largest 1 TD State coefficients
+  1 = 0.835758 +0.549098i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.835758 +0.549098i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   -0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000    0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i     0.00000    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030    0.00000i     0.17496    0.00000i
+       2     0.17496    0.00000i     0.03778    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.70999    0.00000i
+ 
+ ============================================
+
+ Time step:     8.050000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 1 TD State coefficients
+  1 = 0.747611 +0.664137i
+
+ Largest 1 TD State populations
+  1 = 1.000000
+
+ Largest 1 TD CI coefficients
+  1 = 0.747611 +0.664137i
+
+ Largest 1 TD CI populations
+  1 = 1.000000
+
+ Energy (au) =    -3.99269508   -0.00000000i
+ 
+ MO Density matrix (projected on MOs 1)
+ 
+                       1                       2
+       1     1.00000   -0.00000i    -0.00000    0.00000i
+       2    -0.00000    0.00000i     0.00000   -0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.81030   -0.00000i     0.17496   -0.00000i
+       2     0.17496   -0.00000i     0.03778   -0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3       1.70999    0.00000i
+ 
+ ============================================
+
+                 FINAL TIME STEP
+
+ ============================================
+
+ Time step:     9.660000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 1 TD State coefficients
