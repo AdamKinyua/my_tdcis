@@ -536,10 +536,11 @@
           if(doDirect.and.(ci_string.eq.'oci'.or.ci_string.eq.'ocas')) &
             call mqc_error('Direct matrix elements not possible with orthogonal CI')
 
-!   ****
+!   ****!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !   *************************************************
 !   Alters nuclear coordinates per full time_step, stretches z coordinate along
 !   Turn it off by commenting lines 543 - 589 & line 898
+
     do l=0,3
         if (l.eq.0) then
             print*,"######################################################"
@@ -580,14 +581,21 @@
             call EXECUTE_COMMAND_LINE(gauss_exe//' test.com',&                ! Executing gaussian! # module load g16reva03_lcpu
                 exitstat=exit_stat_number,cmdstat=command_stat_number,&
                 cmdmsg=command_message)
-            write(*,*) 'finished executing Gaussian'  ! Test line             !character(len=80)::gauss_exe='$g16root/g16/g16'
+!            write(*,*) 'finished executing Gaussian'  ! Test line             !character(len=80)::gauss_exe='$g16root/g16/g16'
 
          endif
 ! 
-!  **************************************************
+!  ************************Core Hamilitonian**************************
+          
+! 
+!
+          call fileInfo%load(fileList(1))
+          call wavefunction%core_Hamiltonian%print(iOut, "Core Hamiltonian")
 !
 
+    !
     !     Compute the nuclear-nuclear repulsion energy.
+    !
           call moleculeInfo%print(iOut)       
           Vnn = mqc_get_nuclear_repulsion(moleculeInfo)
           call Vnn%print(iOut,'Nuclear Repulsion Energy (au)',Blank_At_Bottom=.true.) 
