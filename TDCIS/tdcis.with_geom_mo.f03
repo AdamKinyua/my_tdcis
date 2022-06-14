@@ -461,6 +461,8 @@
         endIf
       endIf
 !
+!
+!
 !  **********
           call fileInfo%load(fileList(1))
           call fileInfo%getMolData(moleculeInfo)
@@ -538,9 +540,7 @@
 !   *************************************************
 !   Alters nuclear coordinates per full time_step, stretches z coordinate along
 !   Turn it off by commenting lines 543 - 589 & line 898
-!
-!
-do l=0,3
+    do l=0,3
         if (l.eq.0) then
             print*,"######################################################"
             print*,"## Initial Iteration using Input nuclear parameters ##"
@@ -588,46 +588,19 @@ do l=0,3
 !
 ! **************Core Hamiltonian after every new matrix************************
             call fileInfo%load(fileList(1))
+            call fileInfo%getMolData(moleculeInfo)
             call fileInfo%getESTObj('wavefunction', wavefunction)
-!            call wavefunction%core_Hamiltonian%print(iOut, 'Core HHamiltonian')
+            call wavefunction%core_Hamiltonian%print(iOut, 'Core HHamiltonian')
+    !*******************************************************
 !
-!*******************************************************
-!
-!****************Updating anything with AO with update in coordinates: dipoles & 2eris******************
-!
-            print*,""
-            print*,"#####################################"
-            print*,"##### Printing Updated Dipoles ######"
-            print*,"#####################################"
-            print*,""
-            if(iPrint.ge.4) call wavefunction%print(iOut,'all')
-            call fileInfo%getESTObj('dipole x',est_integral=dipole(1))
-            if(iPrint.ge.4) call dipole(1)%print(6,'AO dipole x integrals')
-            call fileInfo%getESTObj('dipole y',est_integral=dipole(2))
-            if(iPrint.ge.4) call dipole(2)%print(6,'AO dipole y integrals')
-            call fileInfo%getESTObj('dipole z',est_integral=dipole(3))
-            if(iPrint.ge.4) call dipole(3)%print(6,'AO dipole z integrals')
-            if(doVelDip) then
-                call fileInfo%getESTObj('vel dipole x',est_integral=veldipole(1))
-                if(iPrint.ge.4) call veldipole(1)%print(6,'AO velocity dipole x integrals')
-                call fileInfo%getESTObj('vel dipole y',est_integral=veldipole(2))
-                if(iPrint.ge.4) call veldipole(2)%print(6,'AO velocity dipole y integrals')
-                call fileInfo%getESTObj('vel dipole z',est_integral=veldipole(3))
-                if(iPrint.ge.4) call veldipole(3)%print(6,'AO velocity dipole z integrals')
-            endIf
-            print*,""
-            print*,""
 
-!   ************************************************************************************************************************
-
-
-!     Compute the nuclear-nuclear repulsion energy.
+    !     Compute the nuclear-nuclear repulsion energy.
           call moleculeInfo%print(iOut)       
           Vnn = mqc_get_nuclear_repulsion(moleculeInfo)
           call Vnn%print(iOut,'Nuclear Repulsion Energy (au)',Blank_At_Bottom=.true.) 
-!
-!     Generate Slater determinants wavefunction expansion if orthogonal expansion requested. 
-!
+    !
+    !     Generate Slater determinants wavefunction expansion if orthogonal expansion requested. 
+    !
           if(ci_string.eq.'oci') then
             call substitution_builder(sub_string,subs)
             if(iPrint.ge.1) then
