@@ -556,7 +556,7 @@ do l=0,3
             print*,"######   Nuclear Step: ", l,                 "#########"   ! Executes after iter 1
             print*,"######################################################"
             call moleculeInfo%Cartesian_Coordinates%print(iOut,'Coordinates') ! prints out the initial nulcear coordinates 
-            i = 2                                                             ! i is the atom number
+            i = 3                                                             ! i is the atom number
             z = moleculeInfo%Cartesian_Coordinates%at(3,i)                    ! var z stores the coordinates to stretch 
             print*,"Z_init: ", z                                                   ! prints initial z coordinates...
             z = z + 0.1                                                       ! stretches z by +0.1 Angstrom
@@ -571,7 +571,7 @@ do l=0,3
             atomlist = MQC_Get_Nuclear_Symbols(moleculeInfo)
 
             call write_GauIn_file(6,'test.com',fileList(i),i.ne.1,&           ! writing a new .com file called test.com with similar parameters and new coordinates
-                doProcMem,ncpu,mem,'',.false.,(i.eq.1.and..not.doDirect),atomlist,&
+                doProcMem,ncpu,mem,'chkbas',.false.,(i.eq.1.and..not.doDirect),atomlist,&
                 moleculeInfo%Cartesian_Coordinates,&
                 fileinfo%getVal('charge'),&
                 fileinfo%getVal('multiplicity'))
@@ -732,6 +732,7 @@ do l=0,3
             do i = 1, 3
               call CI_Dipole(i)%init(numFile,numFile,storage='StorHerm') 
             endDo
+    !      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             do i = 1, numFile
               do j = 1, i
                 call get_rhos(rho,nIJ,pnIJ,nullSize,mo_list(i),mo_list(j),wavefunction%overlap_matrix,wavefunction%nBasis,&
@@ -747,6 +748,7 @@ do l=0,3
                 endDo
               endDo
             endDo
+    !      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             if(iPrint.ge.4) call CI_Overlap%print(6,'CI Overlap',Blank_At_Bottom=.true.)
             if(iPrint.ge.4) call CI_Hamiltonian%print(6,'CI Hamiltonian',Blank_At_Bottom=.true.)
             do i = 1, 3
@@ -1328,7 +1330,7 @@ do l=0,3
           implicit none
 
     !     input/output variables
-          type(mqc_scf_integral),dimension(2),intent(inOut)::rho
+          type(mqc_scf_integral),dimension(2),intent(inOut)::rho 
           type(mqc_scalar),intent(inOut)::nIJ,pnIJ
           integer(kind=int64)::nullSize
           type(mqc_scf_integral),intent(in)::mo_I,mo_J,overlap
@@ -1344,10 +1346,15 @@ do l=0,3
     !
           mo_I_occ = mqc_integral_output_block(mo_I%orbitals('occupied',[int(nAlpha)],[int(nBeta)]),'full') 
           mo_J_occ = mqc_integral_output_block(mo_J%orbitals('occupied',[int(nAlpha)],[int(nBeta)]),'full') 
-          
-          mIJ = matmul(matmul(dagger(mo_I_occ),overlap%getBlock('full')),mo_J_occ)
+!          mIJ = matmul(matmul(dagger(mo_I_occ),overlap%getBlock('full')),mo_J_occ)
+          write(*,*) 'AK 1'
+          call mo_I_occ%print(6,'AK mo_I_occ')
+          call mqc_print(overlap%getBlock('full'),6,'AK overlap')
+          mIJ = matmul(dagger(mo_I_occ),overlap%getBlock('full'))
+          write(*,*) 'AK 2'
+          mIJ = matmul(mIJ,mo_J_occ)
+          write(*,*) 'AK 3'
           nIJ = mIJ%det()
-
           orthflag = .false.
           if((nIJ%abs()).lt.zero_thresh) then
             call mIJ%svd(EVals=sigmaMat,EUVecs=uMat,EVVecs=vMat)
