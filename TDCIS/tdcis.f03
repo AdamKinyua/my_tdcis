@@ -540,7 +540,7 @@
 !   Turn it off by commenting lines 543 - 589 & line 898
 !
 !
-do l=0,3
+do l=0,6
         if (l.eq.0) then
             print*,"######################################################"
             print*,"## Initial Iteration using Input nuclear parameters ##"
@@ -559,7 +559,7 @@ do l=0,3
             i = 3                                                             ! i is the atom number
             z = moleculeInfo%Cartesian_Coordinates%at(3,i)                    ! var z stores the coordinates to stretch 
             print*,"Z_init: ", z                                                   ! prints initial z coordinates...
-            z = z + 0.1                                                       ! stretches z by +0.1 Angstrom
+            z = z + 0.05                                                      ! stretches z by +0.1 Angstrom
             print*,"Z_finl: ", z                                                   ! prints new z
             call moleculeInfo%Cartesian_Coordinates%put(z,3,i)                !inserts stretched z to form new coordinates 
             call moleculeInfo%Cartesian_Coordinates%print(iOut,'Coordinates') !prints out the altered coordinate
@@ -571,8 +571,9 @@ do l=0,3
             atomlist = MQC_Get_Nuclear_Symbols(moleculeInfo)
 
             call write_GauIn_file(6,'test.com',fileList(i),i.ne.1,&           ! writing a new .com file called test.com with similar parameters and new coordinates
-                doProcMem,ncpu,mem,'chkbas',.false.,(i.eq.1.and..not.doDirect),atomlist,&
+                doProcMem,ncpu,mem,'chkbas',.true.,(i.eq.1.and..not.doDirect),atomlist,&
                 moleculeInfo%Cartesian_Coordinates,&
+                moleculeInfo%Nuclear_Charges,&
                 fileinfo%getVal('charge'),&
                 fileinfo%getVal('multiplicity'))
             endDo
@@ -879,13 +880,16 @@ do l=0,3
             final_energy = get_CI_Energy(CI_Hamiltonian,td_ci_coeffs) 
             if(iPrint.ge.1.or.i.eq.maxsteps) call final_energy%print(6,'Energy (au)',Blank_At_Bottom=.true.,&
               FormatStr='F14.8')
-
+!****
             if(ci_string.eq.'oci'.or.ci_string.eq.'ocas') then
               density = get_one_gamma_matrix(iOut,iPrint,wavefunction%nBasis-nVirt,determinants,td_ci_coeffs,UHF,&
                 nOrbsIn=int(wavefunction%nBasis),subs=isubs)
+                
+
               if(iPrint.ge.1.or.i.eq.maxsteps) call density%print(6,'MO Density matrix',Blank_At_Bottom=.true.)
               density = matmul(matmul(wavefunction%mo_coefficients,density),dagger(wavefunction%mo_coefficients))
               if(iPrint.ge.1.or.i.eq.maxsteps) call density%print(6,'AO Density matrix',Blank_At_Bottom=.true.)
+!****            
             else
               density = get_noci_density(td_ci_coeffs,mo_list,wavefunction%overlap_matrix,wavefunction%nBasis,&
                 wavefunction%nAlpha,wavefunction%nBeta) 
@@ -1346,14 +1350,14 @@ do l=0,3
     !
           mo_I_occ = mqc_integral_output_block(mo_I%orbitals('occupied',[int(nAlpha)],[int(nBeta)]),'full') 
           mo_J_occ = mqc_integral_output_block(mo_J%orbitals('occupied',[int(nAlpha)],[int(nBeta)]),'full') 
-!          mIJ = matmul(matmul(dagger(mo_I_occ),overlap%getBlock('full')),mo_J_occ)
-          write(*,*) 'AK 1'
-          call mo_I_occ%print(6,'AK mo_I_occ')
-          call mqc_print(overlap%getBlock('full'),6,'AK overlap')
-          mIJ = matmul(dagger(mo_I_occ),overlap%getBlock('full'))
-          write(*,*) 'AK 2'
-          mIJ = matmul(mIJ,mo_J_occ)
-          write(*,*) 'AK 3'
+          mIJ = matmul(matmul(dagger(mo_I_occ),overlap%getBlock('full')),mo_J_occ)
+          !write(*,*) 'AK 1'
+          !call mo_I_occ%print(6,'AK mo_I_occ')
+          !call mqc_print(overlap%getBlock('full'),6,'AK overlap')
+          !mIJ = matmul(dagger(mo_I_occ),overlap%getBlock('full'))
+          !write(*,*) 'AK 2'
+          !mIJ = matmul(mIJ,mo_J_occ)
+          !write(*,*) 'AK 3'
           nIJ = mIJ%det()
           orthflag = .false.
           if((nIJ%abs()).lt.zero_thresh) then
@@ -2156,7 +2160,7 @@ do l=0,3
           end subroutine parse_active_space
     
           subroutine write_GauIn_file(iPrint,filename,matFile,doAppend,doProcMem,nProc,mem,route_addition,saveMat,&
-            doTwoERIs,atomList,cartesians,charge,multiplicity)
+            doTwoERIs,atomList,cartesians,nuclearCharges,charge,multiplicity)
           !
           ! Write output a Gaussian input file containing numGauIn jobs in each
           !
@@ -2168,6 +2172,7 @@ do l=0,3
             logical,intent(in),optional::saveMat
             character(len=*),dimension(:),allocatable,intent(in),optional::atomList
             type(mqc_matrix),intent(in),optional::cartesians
+            type(mqc_vector),intent(in),optional::nuclearCharges
             integer,intent(in),optional::charge,multiplicity
             integer::unitNumber,i
             character(len=256)::chkFile,matFileSave,geomcmd
@@ -2206,14 +2211,22 @@ do l=0,3
             if(size(atomList).ne.size(cartesians,2)) call mqc_error_i('atom name and coordinate lists are not the&
             &same size in write_GauIn_file',6,'size(atomList)',size(atomList),'size(cartesians,2)',size(cartesians,2))
             do i = 1, size(atomList)
-             write(unitnumber,'(1x,A,F15.8,1x,F15.8,1x,F15.8)') atomList(i),MQC_Scalar_Get_Intrinsic_Real(cartesians%at(1,i)),&
+
+             write(unitnumber,'(1x,A,A,G0,A,1x,F15.8,1x,F15.8,1x,F15.8)') trim(atomList(i)),&
+             '(znuc=',MQC_Scalar_Get_Intrinsic_Real(nuclearCharges%at(i)),')',&
+             MQC_Scalar_Get_Intrinsic_Real(cartesians%at(1,i)),&
              MQC_Scalar_Get_Intrinsic_Real(cartesians%at(2,i)),MQC_Scalar_Get_Intrinsic_Real(cartesians%at(3,i))
+
+             ! Copy of the above two lives 
+             !write(unitnumber,'(1x,A,F15.8,1x,F15.8,1x,F15.8)') atomList(i),MQC_Scalar_Get_Intrinsic_Real(cartesians%at(1,i)),&
+             !MQC_Scalar_Get_Intrinsic_Real(cartesians%at(2,i)),MQC_Scalar_Get_Intrinsic_Real(cartesians%at(3,i))
+
             endDo
                       write(unitnumber,'(A)') ''
                   endIf
                   if(present(saveMat).and.saveMat) then
                       matFileSave = matFile(1:(len(trim(matFile))-4))
-                      matFileSave = trim(matFileSave) // '-save.mat'
+                      matFileSave = trim(matFileSave) // '.mat'
                       write(unitnumber,'(A)') matFileSave
                   else
                       write(unitnumber,'(A)') matFile

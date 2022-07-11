@@ -2,8 +2,8 @@
  Input=test.com
  Output=test.log
  Initial command:
- /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe "/tmp/Gau-22654.inp" -scrdir="/tmp/"
- Entering Link 1 = /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe PID=     22655.
+ /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe "/tmp/Gau-30353.inp" -scrdir="/tmp/"
+ Entering Link 1 = /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe PID=     30354.
   
  Copyright (c) 1988,1990,1992,1993,1995,1998,2003,2009,2016,
             Gaussian, Inc.  All Rights Reserved.
@@ -77,7 +77,7 @@
  
  ******************************************
  Gaussian 16:  EM64M-G16RevA.03 25-Dec-2016
-                16-Jun-2022 
+                11-Jul-2022 
  ******************************************
  %oldmatrix=h3+.mat
  %chk=h3+.chk
@@ -131,16 +131,16 @@
  4/5=1,6=220,9=200,129=1/1;
  6/7=2,8=2,9=2,10=2,28=1/1;
  99/5=1,6=100000,9=1/99;
- Leave Link    1 at Thu Jun 16 16:02:10 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
+ Leave Link    1 at Mon Jul 11 11:15:15 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l101.exe)
  ------------------
  Tile Card Required
  ------------------
  Symbolic Z-matrix:
  Charge =  1 Multiplicity = 1
- H                     0.        0.        0. 
- H                     0.        0.        1.13384 
- H                     0.        0.        2.56767 
+ H(znuc=1.0000000000000000)  0.        0.        0. 
+ H(znuc=1.0000000000000000)  0.        0.        1.3984 
+ H(znuc=-1.0000000000000000)  0.        0.        3.09679 
  
  ITRead=  0  0  0
  MicOpt= -1 -1 -1
@@ -157,8 +157,8 @@
  AtZEff=  -0.0000000  -0.0000000  -0.0000000
  NQMom=    0.0000000   0.0000000   0.0000000
  NMagM=    2.7928460   2.7928460   2.7928460
- AtZNuc=   1.0000000   1.0000000   1.0000000
- Leave Link  101 at Thu Jun 16 16:02:10 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
+ AtZNuc=   1.0000000   1.0000000  -1.0000000
+ Leave Link  101 at Mon Jul 11 11:15:15 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l202.exe)
                           Input orientation:                          
  ---------------------------------------------------------------------
@@ -166,36 +166,28 @@
  Number     Number       Type             X           Y           Z
  ---------------------------------------------------------------------
       1          1           0        0.000000    0.000000    0.000000
-      2          1           0        0.000000    0.000000    1.133836
-      3          1           0        0.000000    0.000000    2.567671
+      2          1           0        0.000000    0.000000    1.398397
+      3          1           0        0.000000    0.000000    3.096795
  ---------------------------------------------------------------------
                     Distance matrix (angstroms):
                     1          2          3
      1  H    0.000000
-     2  H    1.133836   0.000000
-     3  H    2.567671   1.433836   0.000000
+     2  H    1.398397   0.000000
+     3  H    3.096795   1.698397   0.000000
  Symmetry turned off by external request.
  Stoichiometry    H3(1+)
  Framework group  C*V[C*(HHH)]
  Deg. of freedom     2
  Full point group                 C*V     NOp   4
- Rotational constants (GHZ):           0.0000000         151.4298468         151.4298468
- Leave Link  202 at Thu Jun 16 16:02:10 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
+ Rotational constants (GHZ):           0.0000000         104.2511340         104.2511340
+ Leave Link  202 at Mon Jul 11 11:15:15 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l301.exe)
  Basis read from chk: "h3+.chk" (5D, 7F)
  No pseudopotential information found on chk file.
  Warning:  center   3 has no basis functions!
      2 basis functions,     6 primitive gaussians,     2 cartesian basis functions
      1 alpha electrons        1 beta electrons
-       nuclear repulsion energy         1.0418705259 Hartrees.
-
-
-
- Warning!  H  atom    3 has  1 valence electrons but only   0 basis functions.
- This is less than a minimal basis set!
-
-
-
+       nuclear repulsion energy        -0.1040365396 Hartrees.
  IExCor=    0 DFT=F Ex=HF Corr=None ExCW=0 ScaHFX=  1.000000
  ScaDFX=  1.000000  1.000000  1.000000  1.000000 ScalE2=  1.000000  1.000000
  IRadAn=      5 IRanWt=     -1 IRanGd=            0 ICorTp=0 IEmpDi=  4
@@ -204,7 +196,7 @@
  Regular integral format.
  Two-electron integral symmetry is turned off.
  No density basis found on file 20724.
- Leave Link  301 at Thu Jun 16 16:02:10 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
+ Leave Link  301 at Mon Jul 11 11:15:15 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l302.exe)
  NPDir=0 NMtPBC=     1 NCelOv=     1 NCel=       1 NClECP=     1 NCelD=      1
          NCelK=      1 NCelE2=     1 NClLst=     1 CellRange=     0.0.
@@ -212,12 +204,12 @@
  Recover linearly independent bfn info from chk, NBsUse=      2.
  NBasis=     2 RedAO= T EigKep=  0.00D+00  NBF=     2
  NBsUse=     2 1.00D-06 EigRej=  0.00D+00 NBFU=     2
- Leave Link  302 at Thu Jun 16 16:02:10 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
+ Leave Link  302 at Mon Jul 11 11:15:15 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l303.exe)
  DipDrv:  MaxL=1.
- Leave Link  303 at Thu Jun 16 16:02:10 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
+ Leave Link  303 at Mon Jul 11 11:15:15 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l308.exe)
- Leave Link  308 at Thu Jun 16 16:02:10 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
+ Leave Link  308 at Mon Jul 11 11:15:15 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l320.exe)
  Enter DskPsm, NBasis=   2 NBas6D=   2 NShell=   2 IDoSP=4.
  Out2e will use a cutoff of  1.00D-10
@@ -227,16 +219,16 @@
          NMat0=    0 NMatS0=      0 NMatT0=    0 NMatD0=    0 NMtDS0=    0 NMtDT0=    0
  Symmetry not used in FoFCou.
             6 integrals produced for a total of            6.
- Leave Link  320 at Thu Jun 16 16:02:10 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
+ Leave Link  320 at Mon Jul 11 11:15:15 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l401.exe)
  Initial guess from the checkpoint file:  "h3+.chk"
  CmpBas:  ShellC arrays do not match.
  B after Tr=     0.000000    0.000000    0.000000
          Rot=    1.000000    0.000000    0.000000    0.000000 Ang=   0.00 deg.
  Guess basis will be translated and rotated to current coordinates.
- Recover SCF energy =  -1.34153165973     from chk file.
+ Recover SCF energy =  -1.26872068110     from chk file.
  JPrj=2 DoOrth=F DoCkMO=F.
- Leave Link  401 at Thu Jun 16 16:02:10 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
+ Leave Link  401 at Mon Jul 11 11:15:15 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l601.exe)
  Copying SCF densities to generalized density rwf, IOpCl= 0 IROHF=0.
 
@@ -246,54 +238,55 @@
 
  **********************************************************************
 
- Alpha  occ. eigenvalues --   -0.09061
- Alpha virt. eigenvalues --    1.55462
+ Alpha  occ. eigenvalues --   -0.10935
+ Alpha virt. eigenvalues --    1.26222
           Condensed to atoms (all electrons):
                1          2          3
-     1  H    1.362524   0.219304   0.000000
-     2  H    0.219304   0.198868   0.000000
+     1  H    1.332720   0.185945   0.000000
+     2  H    0.185945   0.295390   0.000000
      3  H    0.000000   0.000000   0.000000
  Mulliken charges:
                1
-     1  H   -0.581828
-     2  H    0.581828
-     3  H    1.000000
- Sum of Mulliken charges =   1.00000
+     1  H   -0.518665
+     2  H    0.518665
+     3  H   -1.000000
+ Sum of Mulliken charges =  -1.00000
  Mulliken charges with hydrogens summed into heavy atoms:
                1
- Electronic spatial extent (au):  <R**2>=              5.6521
- Charge=              1.0000 electrons
+ Electronic spatial extent (au):  <R**2>=              7.0087
+ Charge=             -1.0000 electrons
  Dipole moment (field-independent basis, Debye):
-    X=              0.0000    Y=              0.0000    Z=             15.5017  Tot=             15.5017
+    X=              0.0000    Y=              0.0000    Z=            -11.3908  Tot=             11.3908
  Quadrupole moment (field-independent basis, Debye-Ang):
-   XX=             -1.8550   YY=             -1.8550   ZZ=             33.9499
+   XX=             -1.8702   YY=             -1.8702   ZZ=            -42.3573
    XY=              0.0000   XZ=              0.0000   YZ=              0.0000
  Traceless Quadrupole moment (field-independent basis, Debye-Ang):
-   XX=            -11.9349   YY=            -11.9349   ZZ=             23.8699
+   XX=             13.4957   YY=             13.4957   ZZ=            -26.9914
    XY=              0.0000   XZ=              0.0000   YZ=              0.0000
  Octapole moment (field-independent basis, Debye-Ang**2):
-  XXX=              0.0000  YYY=              0.0000  ZZZ=             84.8854  XYY=              0.0000
-  XXY=              0.0000  XXZ=             -0.4753  XZZ=              0.0000  YZZ=              0.0000
-  YYZ=             -0.4753  XYZ=              0.0000
+  XXX=              0.0000  YYY=              0.0000  ZZZ=           -136.3803  XYY=              0.0000
+  XXY=              0.0000  XXZ=             -0.6740  XZZ=              0.0000  YZZ=              0.0000
+  YYZ=             -0.6740  XYZ=              0.0000
  Hexadecapole moment (field-independent basis, Debye-Ang**3):
- XXXX=             -1.5467 YYYY=             -1.5467 ZZZZ=            210.7010 XXXY=              0.0000
+ XXXX=             -1.5717 YYYY=             -1.5717 ZZZZ=           -435.8327 XXXY=              0.0000
  XXXZ=              0.0000 YYYX=              0.0000 YYYZ=              0.0000 ZZZX=              0.0000
- ZZZY=              0.0000 XXYY=             -0.5156 XXZZ=             -0.9158 YYZZ=             -0.9158
+ ZZZY=              0.0000 XXYY=             -0.5239 XXZZ=             -1.2726 YYZZ=             -1.2726
  XXYZ=              0.0000 YYXZ=              0.0000 ZZXY=              0.0000
- N-N= 1.041870525916D+00 E-N=-3.762221149782D+00  KE= 1.258431010440D+00
+ N-N=-1.040365396334D-01 E-N=-2.707415164634D+00  KE= 1.262432230747D+00
  No NMR shielding tensors so no spin-rotation constants.
- Leave Link  601 at Thu Jun 16 16:02:10 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.1
+ Leave Link  601 at Mon Jul 11 11:15:15 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l9999.exe)
- 1\1\GINC-LLANDAWKE\SP\RHF\Gen\H3(1+)\ADAMKINYUA\16-Jun-2022\0\\#P hf g
+ 1\1\GINC-LLANDAWKE\SP\RHF\Gen\H3(1+)\ADAMKINYUA\11-Jul-2022\0\\#P hf g
  uess=read scf=(conven,skip) int=noraf nosymm output=matrix # chkbas\\T
- ile Card Required\\1,1\H,0,0.,0.,0.\H,0,0.,0.,1.13383567\H,0,0.,0.,2.5
- 6767135\\Version=EM64M-G16RevA.03\HF=-1.3415317\RMSD=4.193e-13\Dipole=
- 0.,0.,3.7672313\Quadrupole=-8.8733413,-8.8733413,17.7466826,0.,0.,0.\P
- G=C*V [C*(H1H1H1)]\\@
+ ile Card Required\\1,1\H,0,0.,0.,0.\H,0,0.,0.,1.39839733\H,0,0.,0.,3.0
+ 9679466\\Version=EM64M-G16RevA.03\HF=-1.2687207\RMSD=3.981e-13\Dipole=
+ 0.,0.,-1.2719701\Quadrupole=10.0337288,10.0337288,-20.0674576,0.,0.,0.
+ \PG=C*V [C*(H1H1H1)]\\@
 
 
- THERE IS NO SCIENCE WITHOUT FANCY, NOR ART WITHOUT FACTS.
-     -- VLADIMIR NABAKOV
+ A great many people think they are thinking when they
+ are merely rearranging their prejudices.
+                               -- William James
 
  Writing WrtUnf unformatted file "h3+.mat"
  Gaussian matrix elements                                         Version   2 NLab=11 Len12L=8 Len4L=8
@@ -330,4 +323,4 @@
  Job cpu time:       0 days  0 hours  0 minutes  0.6 seconds.
  Elapsed time:       0 days  0 hours  0 minutes  0.5 seconds.
  File lengths (MBytes):  RWF=      5 Int=      1 D2E=      0 Chk=      1 Scr=      1
- Normal termination of Gaussian 16 at Thu Jun 16 16:02:10 2022.
+ Normal termination of Gaussian 16 at Mon Jul 11 11:15:16 2022.
