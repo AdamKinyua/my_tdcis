@@ -1,5 +1,5 @@
 %chk=h3+.chk
-#p rhf/gen nosymm int=noraff output=matrix scf=conven 
+#p rhf/gen nosymm int=noraff output=matrix scf=conven cis(NStates=3)
 
 h3+ sto-3g for h1&h2; h3 no basis sets applied
 

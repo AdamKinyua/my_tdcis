@@ -21,8 +21,8 @@
       character(len=256),dimension(:),allocatable::fileList
       character(len=256)::vecString,root_string='',sub_string='',field_string='',&
         pulseShape='rectangle',tcf_file='tcf',file_tmp,ci_string='oci',gauss_exe='$g16root/g16/g16',&
-        mem='8GB',ncpu='2',alterations='',activeSpace='',project_basis=''
-      integer(kind=int64)::iOut=6,iPrint=1,iUnit,i,j,k,l,maxsteps,flag,stat_num,numFile=0,nullSize,saveDen=0,&
+        mem='8GB',ncpu='2',alterations='',activeSpace=''
+      integer(kind=int64)::iOut=6,iPrint=1,iUnit,i,j,k,maxsteps,flag,stat_num,numFile=0,nullSize,saveDen=0,&
         nCore=0,nVirt=0
       integer(kind=int64),dimension(:),allocatable::isubs,inactiveList,activeList,alphaList,betaList
       real(kind=real64)::delta_t=0.1,field_size=0.005,simTime=100.0,t0=0.0,sigma=0.5,omega=10.0,&
@@ -49,20 +49,6 @@
       type(mqc_vector),dimension(3)::dipole_eigvals
       type(mqc_vector),dimension(2)::nRoot
       real(kind=real64),parameter::zero_thresh=1.00E-8
-
-      !*****variables defined by adam******
-      real(kind=real64)::x,y,z,xCoord,yCoord,zCoord
-      integer(kind=int64)::nAtoms,exit_stat_number,command_stat_number
-      character(len=:),allocatable::project_geom_file,project_basis_in
-      type(mqc_matrix)::newGeom,cartesians
-      character(len=4),dimension(:),allocatable::atomList,atomString
-      integer::unitno,io_stat_number
-      logical::project_geom=.true.,doGauFMat=.false.
-      type(mqc_gaussian_unformatted_matrix_file)::temp_file
-      character(len=256)::command_message
-      type(mqc_matrix)::CI_Eigenvectors, CI_Eigenvectors_old
-      !character(len=80),dimension(:),allocatable::project_basis=''
-
 !
 !*    USAGE
 !*      TDCIS [-f <matrix_file>] [--print-level <print_level>] [--sub-levels <substitutions>] 
@@ -87,15 +73,6 @@
 !
 !     Parse input options.
 !
-
-
-!****************************************************************************************
-!    do l=0,3
-!        print*,"Nuclear step 1", l
-
-
-
-
 !*   1. Input/output
 !*
       j = 1
@@ -418,11 +395,6 @@
           call mqc_error_A('Unrecognised input flag',6,'command',command)
         endIf
       endDo
-
-
-
-
-
 !
 !     Parse input file and extract required data from matrix files.
 !
@@ -462,173 +434,88 @@
         endIf
       endIf
 !
-!  **********
-          call fileInfo%load(fileList(1))
-          call fileInfo%getMolData(moleculeInfo)
-          call fileInfo%getESTObj('wavefunction',wavefunction)
-          if(iPrint.ge.4) call wavefunction%print(iOut,'all')
-          call fileInfo%getESTObj('dipole x',est_integral=dipole(1))
-          if(iPrint.ge.4) call dipole(1)%print(6,'AO dipole x integrals')
-          call fileInfo%getESTObj('dipole y',est_integral=dipole(2))
-          if(iPrint.ge.4) call dipole(2)%print(6,'AO dipole y integrals')
-          call fileInfo%getESTObj('dipole z',est_integral=dipole(3))
-          if(iPrint.ge.4) call dipole(3)%print(6,'AO dipole z integrals')
-          if(doVelDip) then
-            call fileInfo%getESTObj('vel dipole x',est_integral=veldipole(1))
-            if(iPrint.ge.4) call veldipole(1)%print(6,'AO velocity dipole x integrals')
-            call fileInfo%getESTObj('vel dipole y',est_integral=veldipole(2))
-            if(iPrint.ge.4) call veldipole(2)%print(6,'AO velocity dipole y integrals')
-            call fileInfo%getESTObj('vel dipole z',est_integral=veldipole(3))
-            if(iPrint.ge.4) call veldipole(3)%print(6,'AO velocity dipole z integrals')
-          endIf
+      call fileInfo%load(fileList(1))
+      call fileInfo%getMolData(moleculeInfo)
+      call fileInfo%getESTObj('wavefunction',wavefunction)
+      if(iPrint.ge.4) call wavefunction%print(iOut,'all')
+      call fileInfo%getESTObj('dipole x',est_integral=dipole(1))
+      if(iPrint.ge.4) call dipole(1)%print(6,'AO dipole x integrals')
+      call fileInfo%getESTObj('dipole y',est_integral=dipole(2))
+      if(iPrint.ge.4) call dipole(2)%print(6,'AO dipole y integrals')
+      call fileInfo%getESTObj('dipole z',est_integral=dipole(3))
+      if(iPrint.ge.4) call dipole(3)%print(6,'AO dipole z integrals')
+      if(doVelDip) then
+        call fileInfo%getESTObj('vel dipole x',est_integral=veldipole(1))
+        if(iPrint.ge.4) call veldipole(1)%print(6,'AO velocity dipole x integrals')
+        call fileInfo%getESTObj('vel dipole y',est_integral=veldipole(2))
+        if(iPrint.ge.4) call veldipole(2)%print(6,'AO velocity dipole y integrals')
+        call fileInfo%getESTObj('vel dipole z',est_integral=veldipole(3))
+        if(iPrint.ge.4) call veldipole(3)%print(6,'AO velocity dipole z integrals')
+      endIf
+!
+      if(.not.doDirect) then
+        if(ci_string.eq.'oci'.or.ci_string.eq.'ocas') then
+          allocate(eris(1))
+        else
+          allocate(eris(3))
+        endIf
+        call fileInfo%get2ERIs('regular',eris(1),foundERI=found)
+        if(found.and.ci_string.ne.'oci'.and.ci_string.ne.'ocas') then
+          eris(2) = eris(1)
+          eris(3) = eris(1)
+          call mqc_twoeris_transform(eris(1),'raffenetti1')
+          call mqc_twoeris_transform(eris(2),'raffenetti2')
+          call mqc_twoeris_transform(eris(3),'raffenetti3')
+        elseIf(ci_string.ne.'oci'.and.ci_string.ne.'ocas') then
+          call fileInfo%get2ERIs('raffenetti1',eris(1),foundERI=found)
+          if(found) call fileInfo%get2ERIs('raffenetti2',eris(2),foundERI=found)
+          if(found) call fileInfo%get2ERIs('raffenetti3',eris(3),foundERI=found)
+        endIf
+        if(.not.found) call mqc_error_l('Integrals were not found on matrix file',6, &
+          'found',found)
+        if(iPrint.ge.4) then
+          do i = 1, size(eris) 
+            call eris(i)%print(iOut,'AO 2ERIs set '//trim(num2char(i)))
+          endDo
+        endIf
+      endIf
+!
+      if(ci_string.eq.'oci'.or.ci_string.eq.'ocas') then
+        if(wavefunction%wf_type.eq.'U') then
+          UHF = .true.
+          if(iPrint.ge.3) write(iOut,'(1X,A)') 'Found UHF wavefunction'//NEW_LINE('A')
+        elseIf(wavefunction%wf_type.eq.'R') then
+          UHF = .False.
+          if(iPrint.ge.3) write(iOut,'(1X,A)') 'Found RHF wavefunction'//NEW_LINE('A')
+        else
+          call mqc_error_A('Unsupported wavefunction type',iOut, &
+            'Wavefunction%wf_type',wavefunction%wf_type)
+        endIf 
+        if (wavefunction%wf_complex) call mqc_error('Complex wavefunctions unsupported')
+      endIf
+!
+      if(doDirect.or.abs(saveDen).gt.0) then
+        call fileInfo%getArray('SHELL TO ATOM MAP',sh2AtMp)
+        call fileInfo%getArray('SHELL TYPES',shlTyp)
+        call fileInfo%getArray('NUMBER OF PRIMITIVES PER SHELL',nPrmSh)
+        call fileInfo%getArray('PRIMITIVE EXPONENTS',prmExp)
+        call fileInfo%getArray('CONTRACTION COEFFICIENTS',conCoef)
+        call fileInfo%getArray('P(S=P) CONTRACTION COEFFICIENTS',conCoTwo)
+        call fileInfo%getArray('COORDINATES OF EACH SHELL',shCoor)
+      endIf
+      if(doDirect.and.(ci_string.eq.'oci'.or.ci_string.eq.'ocas')) &
+        call mqc_error('Direct matrix elements not possible with orthogonal CI')
+
+
     !
-          if(.not.doDirect) then
-            if(ci_string.eq.'oci'.or.ci_string.eq.'ocas') then
-              allocate(eris(1))
-            else
-              allocate(eris(3))
-            endIf
-            call fileInfo%get2ERIs('regular',eris(1),foundERI=found)
-            if(found.and.ci_string.ne.'oci'.and.ci_string.ne.'ocas') then
-              eris(2) = eris(1)
-              eris(3) = eris(1)
-              call mqc_twoeris_transform(eris(1),'raffenetti1')
-              call mqc_twoeris_transform(eris(2),'raffenetti2')
-              call mqc_twoeris_transform(eris(3),'raffenetti3')
-            elseIf(ci_string.ne.'oci'.and.ci_string.ne.'ocas') then
-              call fileInfo%get2ERIs('raffenetti1',eris(1),foundERI=found)
-              if(found) call fileInfo%get2ERIs('raffenetti2',eris(2),foundERI=found)
-              if(found) call fileInfo%get2ERIs('raffenetti3',eris(3),foundERI=found)
-            endIf
-            if(.not.found) call mqc_error_l('Integrals were not found on matrix file',6, &
-              'found',found)
-            if(iPrint.ge.4) then
-              do i = 1, size(eris) 
-                call eris(i)%print(iOut,'AO 2ERIs set '//trim(num2char(i)))
-              endDo
-            endIf
-          endIf
+    !     Compute the nuclear-nuclear repulsion energy.
     !
-          if(ci_string.eq.'oci'.or.ci_string.eq.'ocas') then
-            if(wavefunction%wf_type.eq.'U') then
-              UHF = .true.
-              if(iPrint.ge.3) write(iOut,'(1X,A)') 'Found UHF wavefunction'//NEW_LINE('A')
-            elseIf(wavefunction%wf_type.eq.'R') then
-              UHF = .False.
-              if(iPrint.ge.3) write(iOut,'(1X,A)') 'Found RHF wavefunction'//NEW_LINE('A')
-            else
-              call mqc_error_A('Unsupported wavefunction type',iOut, &
-                'Wavefunction%wf_type',wavefunction%wf_type)
-            endIf 
-            if (wavefunction%wf_complex) call mqc_error('Complex wavefunctions unsupported')
-          endIf
-    !
-          if(doDirect.or.abs(saveDen).gt.0) then
-            call fileInfo%getArray('SHELL TO ATOM MAP',sh2AtMp)
-            call fileInfo%getArray('SHELL TYPES',shlTyp)
-            call fileInfo%getArray('NUMBER OF PRIMITIVES PER SHELL',nPrmSh)
-            call fileInfo%getArray('PRIMITIVE EXPONENTS',prmExp)
-            call fileInfo%getArray('CONTRACTION COEFFICIENTS',conCoef)
-            call fileInfo%getArray('P(S=P) CONTRACTION COEFFICIENTS',conCoTwo)
-            call fileInfo%getArray('COORDINATES OF EACH SHELL',shCoor)
-          endIf
-          if(doDirect.and.(ci_string.eq.'oci'.or.ci_string.eq.'ocas')) &
-            call mqc_error('Direct matrix elements not possible with orthogonal CI')
-
-!   ****
-!   *************************************************
-!   Alters nuclear coordinates per full time_step, stretches z coordinate along
-!   Turn it off by commenting lines 543 - 589 & line 898
-!
-!
-do l=0,3
-        if (l.eq.0) then
-            print*,"######################################################"
-            print*,"## Initial Iteration using Input nuclear parameters ##"
-            print*,"######################################################"
-!            
-            call moleculeInfo%Cartesian_Coordinates%print(iOut,'Coordinates')
-!
-        
-        elseif (l.ge.1) then
-            print*,""
-            print*,""
-            print*,"######################################################"
-            print*,"######   Nuclear Step: ", l,                 "#########"   ! Executes after iter 1
-            print*,"######################################################"
-            call moleculeInfo%Cartesian_Coordinates%print(iOut,'Coordinates') ! prints out the initial nulcear coordinates 
-            i = 3                                                             ! i is the atom number
-            z = moleculeInfo%Cartesian_Coordinates%at(3,i)                    ! var z stores the coordinates to stretch 
-            print*,"Z_init: ", z                                                   ! prints initial z coordinates...
-            z = z + 0.00                                                      ! stretches z by +0.1 Angstrom
-            print*,"Z_finl: ", z                                                   ! prints new z
-            call moleculeInfo%Cartesian_Coordinates%put(z,3,i)                !inserts stretched z to form new coordinates 
-            call moleculeInfo%Cartesian_Coordinates%print(iOut,'Coordinates') !prints out the altered coordinate
-            
-
-! *************Projecting Geometry********************
-
-            do i = 1,size(fileList)
-            atomlist = MQC_Get_Nuclear_Symbols(moleculeInfo)
-
-            call write_GauIn_file(6,'test.com',fileList(i),i.ne.1,&           ! writing a new .com file called test.com with similar parameters and new coordinates
-                doProcMem,ncpu,mem,'chkbas',.true.,(i.eq.1.and..not.doDirect),atomlist,&
-                moleculeInfo%Cartesian_Coordinates,&
-                moleculeInfo%Nuclear_Charges,&
-                fileinfo%getVal('charge'),&
-                fileinfo%getVal('multiplicity'))
-            endDo
-             
-            call EXECUTE_COMMAND_LINE(gauss_exe//' test.com',&                ! Executing gaussian! # module load g16reva03_lcpu
-                exitstat=exit_stat_number,cmdstat=command_stat_number,&
-                cmdmsg=command_message)
-            write(*,*) 'finished executing Gaussian'  ! Test line             !character(len=80)::gauss_exe='$g16root/g16/g16'
-         endif
-! 
-!  **************************************************
-!
-! **************Core Hamiltonian after every new matrix************************
-            call fileInfo%load(fileList(1))
-            call fileInfo%getESTObj('wavefunction', wavefunction)
-!            call wavefunction%core_Hamiltonian%print(iOut, 'Core HHamiltonian')
-!
-!*******************************************************
-!
-!****************Updating anything with AO with update in coordinates: dipoles & 2eris******************
-!
-            print*,""
-            print*,"#####################################"
-            print*,"##### Printing Updated Dipoles ######"
-            print*,"#####################################"
-            print*,""
-            if(iPrint.ge.4) call wavefunction%print(iOut,'all')
-            call fileInfo%getESTObj('dipole x',est_integral=dipole(1))
-            if(iPrint.ge.4) call dipole(1)%print(6,'AO dipole x integrals')
-            call fileInfo%getESTObj('dipole y',est_integral=dipole(2))
-            if(iPrint.ge.4) call dipole(2)%print(6,'AO dipole y integrals')
-            call fileInfo%getESTObj('dipole z',est_integral=dipole(3))
-            if(iPrint.ge.4) call dipole(3)%print(6,'AO dipole z integrals')
-            if(doVelDip) then
-                call fileInfo%getESTObj('vel dipole x',est_integral=veldipole(1))
-                if(iPrint.ge.4) call veldipole(1)%print(6,'AO velocity dipole x integrals')
-                call fileInfo%getESTObj('vel dipole y',est_integral=veldipole(2))
-                if(iPrint.ge.4) call veldipole(2)%print(6,'AO velocity dipole y integrals')
-                call fileInfo%getESTObj('vel dipole z',est_integral=veldipole(3))
-                if(iPrint.ge.4) call veldipole(3)%print(6,'AO velocity dipole z integrals')
-            endIf
-            print*,""
-            print*,""
-
-!   ************************************************************************************************************************
-
-
-!     Compute the nuclear-nuclear repulsion energy.
-          call moleculeInfo%print(iOut)       
+          call moleculeInfo%print(iOut)
           Vnn = mqc_get_nuclear_repulsion(moleculeInfo)
           call Vnn%print(iOut,'Nuclear Repulsion Energy (au)',Blank_At_Bottom=.true.) 
-!
-!     Generate Slater determinants wavefunction expansion if orthogonal expansion requested. 
-!
+    !
+    !     Generate Slater determinants wavefunction expansion if orthogonal expansion requested. 
+    !
           if(ci_string.eq.'oci') then
             call substitution_builder(sub_string,subs)
             if(iPrint.ge.1) then
@@ -733,7 +620,6 @@ do l=0,3
             do i = 1, 3
               call CI_Dipole(i)%init(numFile,numFile,storage='StorHerm') 
             endDo
-    !      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             do i = 1, numFile
               do j = 1, i
                 call get_rhos(rho,nIJ,pnIJ,nullSize,mo_list(i),mo_list(j),wavefunction%overlap_matrix,wavefunction%nBasis,&
@@ -749,7 +635,6 @@ do l=0,3
                 endDo
               endDo
             endDo
-    !      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             if(iPrint.ge.4) call CI_Overlap%print(6,'CI Overlap',Blank_At_Bottom=.true.)
             if(iPrint.ge.4) call CI_Hamiltonian%print(6,'CI Hamiltonian',Blank_At_Bottom=.true.)
             do i = 1, 3
@@ -764,37 +649,11 @@ do l=0,3
     !
           if(iPrint.ge.1) write(iOut,'(1X,A)') 'Diagonalizing CI Hamiltonian'//NEW_LINE('A')
           if(ci_string.eq.'oci'.or.ci_string.eq.'ocas') then
-           
-           
-            !******************************************************************************************************************
-            CI_Eigenvectors_old = wavefunction%pscf_amplitudes                                             ! added
-!            call CI_Eigenvectors_old%print(iOut,'CI Eigenvectors Old',Blank_At_Bottom=.true.) ! delete this
-            !*******
-
-            call CI_Hamiltonian%diag(wavefunction%pscf_energies,wavefunction%pscf_amplitudes)  ! Original
-            !
-
-            !********
-            call wavefunction%pscf_amplitudes%print(iOut,'New eigenvectors',Blank_At_Bottom=.true.) ! delete this
-            do i = 1, size(wavefunction%pscf_amplitudes, 1)
-              call mqc_print(dot_product(dagger(CI_Eigenvectors_old%vat([0],[i])),&
-                wavefunction%pscf_amplitudes%vat([0],[i])),6,'Dot product '//trim(num2char(i)))
-             ! call wavefunction%pscf_amplitudes%put(dot_product(dagger(CI_Eigenvectors_old%vat([0],[i]),&
-             !   CI_Eigenvectors%vat([0],[i]),[i]))
-            endDo
-            call wavefunction%pscf_amplitudes%print(iOut,'CI Eigenvectors New',Blank_At_Bottom=.true.)  ! delete this
-            
-            !*******************************************************************************************************************
-
-           !!!projecting old_ci_vector onto the new
-           !!!end
-
-
-
-
+            call CI_Hamiltonian%diag(wavefunction%pscf_energies,wavefunction%pscf_amplitudes)
           elseIf(ci_string.eq.'noci') then
             call CI_Hamiltonian%eigensys(CI_Overlap,wavefunction%pscf_energies,wavefunction%pscf_amplitudes)
           endIf
+
           if(iPrint.ge.4) call wavefunction%pscf_amplitudes%print(iOut,'CI Eigenvectors',Blank_At_Bottom=.true.)
           if(iPrint.ge.3) call wavefunction%pscf_energies%print(iOut,'CI Eigenvalues',Blank_At_Bottom=.true.)
     !
@@ -892,21 +751,6 @@ do l=0,3
             endIf
             call print_coeffs_and_pops(iOut,iPrint,1,state_coeffs,'TD State')
 
-            
-
-
-            !****************
-           ! td_ci_coeffs_old = td_ci_coeffs
-           ! call 
-           ! do k = 1,size(td_ci_coeffs)
-           !   dot_product(dagger(td_ci_coeffs_old%vat([0],[k])),td_ci_coeffs%vat([0],[k]),k)
-           ! endDo
-            !****************
-
-
-
-
-
             call td_ci_coeffs%init(size(wavefunction%pscf_amplitudes,1))
             do j = 1, size(state_coeffs)
               td_ci_coeffs = td_ci_coeffs + state_coeffs%at(j)*wavefunction%pscf_amplitudes%vat([0],[j])
@@ -921,16 +765,13 @@ do l=0,3
             final_energy = get_CI_Energy(CI_Hamiltonian,td_ci_coeffs) 
             if(iPrint.ge.1.or.i.eq.maxsteps) call final_energy%print(6,'Energy (au)',Blank_At_Bottom=.true.,&
               FormatStr='F14.8')
-!****
+
             if(ci_string.eq.'oci'.or.ci_string.eq.'ocas') then
               density = get_one_gamma_matrix(iOut,iPrint,wavefunction%nBasis-nVirt,determinants,td_ci_coeffs,UHF,&
                 nOrbsIn=int(wavefunction%nBasis),subs=isubs)
-                
-
               if(iPrint.ge.1.or.i.eq.maxsteps) call density%print(6,'MO Density matrix',Blank_At_Bottom=.true.)
               density = matmul(matmul(wavefunction%mo_coefficients,density),dagger(wavefunction%mo_coefficients))
               if(iPrint.ge.1.or.i.eq.maxsteps) call density%print(6,'AO Density matrix',Blank_At_Bottom=.true.)
-!****            
             else
               density = get_noci_density(td_ci_coeffs,mo_list,wavefunction%overlap_matrix,wavefunction%nBasis,&
                 wavefunction%nAlpha,wavefunction%nBeta) 
@@ -976,8 +817,7 @@ do l=0,3
               endDo
             endIf
           endIf
-    end do !(for nuclear loop)
-    !*********************************************************************************************************************
+
     !
           contains
     !
@@ -1375,7 +1215,7 @@ do l=0,3
           implicit none
 
     !     input/output variables
-          type(mqc_scf_integral),dimension(2),intent(inOut)::rho 
+          type(mqc_scf_integral),dimension(2),intent(inOut)::rho
           type(mqc_scalar),intent(inOut)::nIJ,pnIJ
           integer(kind=int64)::nullSize
           type(mqc_scf_integral),intent(in)::mo_I,mo_J,overlap
@@ -1391,15 +1231,10 @@ do l=0,3
     !
           mo_I_occ = mqc_integral_output_block(mo_I%orbitals('occupied',[int(nAlpha)],[int(nBeta)]),'full') 
           mo_J_occ = mqc_integral_output_block(mo_J%orbitals('occupied',[int(nAlpha)],[int(nBeta)]),'full') 
+          
           mIJ = matmul(matmul(dagger(mo_I_occ),overlap%getBlock('full')),mo_J_occ)
-          !write(*,*) 'AK 1'
-          !call mo_I_occ%print(6,'AK mo_I_occ')
-          !call mqc_print(overlap%getBlock('full'),6,'AK overlap')
-          !mIJ = matmul(dagger(mo_I_occ),overlap%getBlock('full'))
-          !write(*,*) 'AK 2'
-          !mIJ = matmul(mIJ,mo_J_occ)
-          !write(*,*) 'AK 3'
           nIJ = mIJ%det()
+
           orthflag = .false.
           if((nIJ%abs()).lt.zero_thresh) then
             call mIJ%svd(EVals=sigmaMat,EUVecs=uMat,EVVecs=vMat)
@@ -2199,84 +2034,7 @@ do l=0,3
               & present',6,'solutionNum',solutionNum-1,'numFile',numFile)
           end if
           end subroutine parse_active_space
-    
-          subroutine write_GauIn_file(iPrint,filename,matFile,doAppend,doProcMem,nProc,mem,route_addition,saveMat,&
-            doTwoERIs,atomList,cartesians,nuclearCharges,charge,multiplicity)
-          !
-          ! Write output a Gaussian input file containing numGauIn jobs in each
-          !
-            implicit none 
-            integer,intent(in)::iPrint
-            character(len=*),intent(in)::filename,matFile,nProc,mem
-            character(len=*),optional,intent(in)::route_addition
-            logical,intent(in)::doAppend,doProcMem,doTwoERIs
-            logical,intent(in),optional::saveMat
-            character(len=*),dimension(:),allocatable,intent(in),optional::atomList
-            type(mqc_matrix),intent(in),optional::cartesians
-            type(mqc_vector),intent(in),optional::nuclearCharges
-            integer,intent(in),optional::charge,multiplicity
-            integer::unitNumber,i
-            character(len=256)::chkFile,matFileSave,geomcmd
-         !
-          if(.not.doAppend) then
-             open(newunit=unitNumber,file=filename,status='UNKNOWN')
-          else
-            open(newunit=unitNumber,file=filename,position='APPEND',status='OLD')
-            write(unitNumber,'(A9)') '--link1--'
-          endIf
-
-          if(doProcMem) then
-              write(unitnumber,'(A7,A)') '%nproc=',trim(nProc)
-              write(unitnumber,'(A5,A)') '%mem=',trim(mem)
-          endIf
-          write(unitnumber,'(A11,A)') '%oldmatrix=',trim(matFile)
-          chkFile = matFile(1:(len(trim(matFile))-4))
-          chkFile = trim(chkFile) // '.chk'
-          write(unitnumber,'(A5,A)') '%chk=',trim(chkFile)
-          if(present(cartesians)) then
-              geomcmd = ''
-          else
-              geomcmd = 'geom=allcheck'
-          endIf
-          if(doTwoERIs) then
-              write(unitnumber,'(A,A,A)') '#P hf guess=read '//trim(geomcmd)//' scf=(conven,skip) int=noraf nosymm output=matrix'
-          else
-              write(unitnumber,'(A,A,A)') '#P hf guess=read '//trim(geomcmd)//' scf=(skip) int=noraf nosymm output=matrix'
-          endIf
-          if(present(route_addition)) write(unitnumber,'(A2,A)') '# ',trim(route_addition)
-            write(unitnumber,'(A)') ''
-            if(present(atomList).and.present(cartesians).and.present(charge).and.present(multiplicity)) then
-            write(unitnumber,'(A)') 'Tile Card Required'
-            write(unitnumber,'(A)') ''
-            write(unitnumber,'(I3,1x,I2)') charge, multiplicity
-            if(size(atomList).ne.size(cartesians,2)) call mqc_error_i('atom name and coordinate lists are not the&
-            &same size in write_GauIn_file',6,'size(atomList)',size(atomList),'size(cartesians,2)',size(cartesians,2))
-            do i = 1, size(atomList)
-
-             write(unitnumber,'(1x,A,A,G0,A,1x,F15.8,1x,F15.8,1x,F15.8)') trim(atomList(i)),&
-             '(znuc=',MQC_Scalar_Get_Intrinsic_Real(nuclearCharges%at(i)),')',&
-             MQC_Scalar_Get_Intrinsic_Real(cartesians%at(1,i)),&
-             MQC_Scalar_Get_Intrinsic_Real(cartesians%at(2,i)),MQC_Scalar_Get_Intrinsic_Real(cartesians%at(3,i))
-
-             ! Copy of the above two lives 
-             !write(unitnumber,'(1x,A,F15.8,1x,F15.8,1x,F15.8)') atomList(i),MQC_Scalar_Get_Intrinsic_Real(cartesians%at(1,i)),&
-             !MQC_Scalar_Get_Intrinsic_Real(cartesians%at(2,i)),MQC_Scalar_Get_Intrinsic_Real(cartesians%at(3,i))
-
-            endDo
-                      write(unitnumber,'(A)') ''
-                  endIf
-                  if(present(saveMat).and.saveMat) then
-                      matFileSave = matFile(1:(len(trim(matFile))-4))
-                      matFileSave = trim(matFileSave) // '.mat'
-                      write(unitnumber,'(A)') matFileSave
-                  else
-                      write(unitnumber,'(A)') matFile
-                  endIf
-                  close(unit=unitNumber)
- 
-        end subroutine write_GauIn_file
-
-
+   ! end do
 
 
 !   ***************************************************************************************************************      

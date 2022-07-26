@@ -23,5 +23,5 @@ cd $PBS_O_WORKDIR
 #
 # Run Interactive basin-hopping algorithm
 #
-~/td_code/TDCIS/tdcis.exe -f h2.txt --print-level 3 --sub-levels [1,2] --ci-type noci --initial-state [1,0.5:2,0.5] --pulse-shape continuous --field-size 0.0 --t0 0 --sigma 16.1 --time-step 1.61 --omega 0.977 --simulation-time 17.0 > h2.real
+~/td_code/TDCIS/unedited_tdcis_code/tdcis.exe -f h2.txt --print-level 4 --sub-levels [1,2] --ci-type oci --pulse-shape continuous --field-size 0.0 --t0 0 --sigma 16.1 --time-step 1.61 --omega 0.977 --simulation-time 17.0 > h2.real
 

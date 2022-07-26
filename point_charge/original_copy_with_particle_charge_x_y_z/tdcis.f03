@@ -60,8 +60,9 @@
       logical::project_geom=.true.,doGauFMat=.false.
       type(mqc_gaussian_unformatted_matrix_file)::temp_file
       character(len=256)::command_message
-      type(mqc_matrix)::CI_Eigenvectors, CI_Eigenvectors_old
       !character(len=80),dimension(:),allocatable::project_basis=''
+      
+      real::particle_charge,particle_x,particle_y,particle_z
 
 !
 !*    USAGE
@@ -541,7 +542,7 @@
 !   Turn it off by commenting lines 543 - 589 & line 898
 !
 !
-do l=0,3
+do l=0,6
         if (l.eq.0) then
             print*,"######################################################"
             print*,"## Initial Iteration using Input nuclear parameters ##"
@@ -557,15 +558,17 @@ do l=0,3
             print*,"######   Nuclear Step: ", l,                 "#########"   ! Executes after iter 1
             print*,"######################################################"
             call moleculeInfo%Cartesian_Coordinates%print(iOut,'Coordinates') ! prints out the initial nulcear coordinates 
-            i = 3                                                             ! i is the atom number
-            z = moleculeInfo%Cartesian_Coordinates%at(3,i)                    ! var z stores the coordinates to stretch 
-            print*,"Z_init: ", z                                                   ! prints initial z coordinates...
-            z = z + 0.00                                                      ! stretches z by +0.1 Angstrom
-            print*,"Z_finl: ", z                                                   ! prints new z
-            call moleculeInfo%Cartesian_Coordinates%put(z,3,i)                !inserts stretched z to form new coordinates 
+      !***
+          !  i = 3                                                             ! i is the atom number
+          !  z = moleculeInfo%Cartesian_Coordinates%at(3,i)                    ! var z stores the coordinates to stretch 
+          !  print*,"Z_init: ", z                                                   ! prints initial z coordinates...
+          !  z = z + 0.05                                                      ! stretches z by +0.1 Angstrom
+          !  print*,"Z_finl: ", z                                                   ! prints new z
+          !  call moleculeInfo%Cartesian_Coordinates%put(z,3,i)                !inserts stretched z to form new coordinates 
+      !***      
             call moleculeInfo%Cartesian_Coordinates%print(iOut,'Coordinates') !prints out the altered coordinate
             
-
+            
 ! *************Projecting Geometry********************
 
             do i = 1,size(fileList)
@@ -576,13 +579,18 @@ do l=0,3
                 moleculeInfo%Cartesian_Coordinates,&
                 moleculeInfo%Nuclear_Charges,&
                 fileinfo%getVal('charge'),&
-                fileinfo%getVal('multiplicity'))
-            endDo
+                fileinfo%getVal('multiplicity'),&
+                fileinfo%getVal('point_charge'))
+              !  fileinfo%getVal('particle_x'),&
+              !  fileinfo%getVal('particle_y'),&
+              !  fileinfo%getVal('particle_z'))
+           endDo
              
             call EXECUTE_COMMAND_LINE(gauss_exe//' test.com',&                ! Executing gaussian! # module load g16reva03_lcpu
                 exitstat=exit_stat_number,cmdstat=command_stat_number,&
                 cmdmsg=command_message)
             write(*,*) 'finished executing Gaussian'  ! Test line             !character(len=80)::gauss_exe='$g16root/g16/g16'
+
          endif
 ! 
 !  **************************************************
@@ -764,37 +772,11 @@ do l=0,3
     !
           if(iPrint.ge.1) write(iOut,'(1X,A)') 'Diagonalizing CI Hamiltonian'//NEW_LINE('A')
           if(ci_string.eq.'oci'.or.ci_string.eq.'ocas') then
-           
-           
-            !******************************************************************************************************************
-            CI_Eigenvectors_old = wavefunction%pscf_amplitudes                                             ! added
-!            call CI_Eigenvectors_old%print(iOut,'CI Eigenvectors Old',Blank_At_Bottom=.true.) ! delete this
-            !*******
-
-            call CI_Hamiltonian%diag(wavefunction%pscf_energies,wavefunction%pscf_amplitudes)  ! Original
-            !
-
-            !********
-            call wavefunction%pscf_amplitudes%print(iOut,'New eigenvectors',Blank_At_Bottom=.true.) ! delete this
-            do i = 1, size(wavefunction%pscf_amplitudes, 1)
-              call mqc_print(dot_product(dagger(CI_Eigenvectors_old%vat([0],[i])),&
-                wavefunction%pscf_amplitudes%vat([0],[i])),6,'Dot product '//trim(num2char(i)))
-             ! call wavefunction%pscf_amplitudes%put(dot_product(dagger(CI_Eigenvectors_old%vat([0],[i]),&
-             !   CI_Eigenvectors%vat([0],[i]),[i]))
-            endDo
-            call wavefunction%pscf_amplitudes%print(iOut,'CI Eigenvectors New',Blank_At_Bottom=.true.)  ! delete this
-            
-            !*******************************************************************************************************************
-
-           !!!projecting old_ci_vector onto the new
-           !!!end
-
-
-
-
+            call CI_Hamiltonian%diag(wavefunction%pscf_energies,wavefunction%pscf_amplitudes)
           elseIf(ci_string.eq.'noci') then
             call CI_Hamiltonian%eigensys(CI_Overlap,wavefunction%pscf_energies,wavefunction%pscf_amplitudes)
           endIf
+
           if(iPrint.ge.4) call wavefunction%pscf_amplitudes%print(iOut,'CI Eigenvectors',Blank_At_Bottom=.true.)
           if(iPrint.ge.3) call wavefunction%pscf_energies%print(iOut,'CI Eigenvalues',Blank_At_Bottom=.true.)
     !
@@ -891,21 +873,6 @@ do l=0,3
               endDo
             endIf
             call print_coeffs_and_pops(iOut,iPrint,1,state_coeffs,'TD State')
-
-            
-
-
-            !****************
-           ! td_ci_coeffs_old = td_ci_coeffs
-           ! call 
-           ! do k = 1,size(td_ci_coeffs)
-           !   dot_product(dagger(td_ci_coeffs_old%vat([0],[k])),td_ci_coeffs%vat([0],[k]),k)
-           ! endDo
-            !****************
-
-
-
-
 
             call td_ci_coeffs%init(size(wavefunction%pscf_amplitudes,1))
             do j = 1, size(state_coeffs)
@@ -2201,7 +2168,7 @@ do l=0,3
           end subroutine parse_active_space
     
           subroutine write_GauIn_file(iPrint,filename,matFile,doAppend,doProcMem,nProc,mem,route_addition,saveMat,&
-            doTwoERIs,atomList,cartesians,nuclearCharges,charge,multiplicity)
+            doTwoERIs,atomList,cartesians,nuclearCharges,charge,multiplicity,particle_charge,particle_x,particle_y,particle_z)
           !
           ! Write output a Gaussian input file containing numGauIn jobs in each
           !
@@ -2213,10 +2180,16 @@ do l=0,3
             logical,intent(in),optional::saveMat
             character(len=*),dimension(:),allocatable,intent(in),optional::atomList
             type(mqc_matrix),intent(in),optional::cartesians
-            type(mqc_vector),intent(in),optional::nuclearCharges
+            type(mqc_vector),intent(in),optional::nuclearCharges, point_charge
             integer,intent(in),optional::charge,multiplicity
             integer::unitNumber,i
             character(len=256)::chkFile,matFileSave,geomcmd
+
+          !   real::particle_charge,xx,yy,zz
+            
+          real::particle_charge,particle_x,particle_y,particle_z
+         
+          !real::particle_charge=-1.0,xx=0.00,yy=0.00,zz=1.48
          !
           if(.not.doAppend) then
              open(newunit=unitNumber,file=filename,status='UNKNOWN')
@@ -2239,9 +2212,11 @@ do l=0,3
               geomcmd = 'geom=allcheck'
           endIf
           if(doTwoERIs) then
-              write(unitnumber,'(A,A,A)') '#P hf guess=read '//trim(geomcmd)//' scf=(conven,skip) int=noraf nosymm output=matrix'
+              write(unitnumber,'(A,A,A)') '#P Charge rhf guess=read '//trim(geomcmd)//' scf=(conven,skip)&
+                &int=noraf nosymm output=matrix'
           else
-              write(unitnumber,'(A,A,A)') '#P hf guess=read '//trim(geomcmd)//' scf=(skip) int=noraf nosymm output=matrix'
+              write(unitnumber,'(A,A,A)') '#P Charge hf guess=read '//trim(geomcmd)//' scf=(skip)&
+                &int=noraf nosymm output=matrix'
           endIf
           if(present(route_addition)) write(unitnumber,'(A2,A)') '# ',trim(route_addition)
             write(unitnumber,'(A)') ''
@@ -2251,18 +2226,33 @@ do l=0,3
             write(unitnumber,'(I3,1x,I2)') charge, multiplicity
             if(size(atomList).ne.size(cartesians,2)) call mqc_error_i('atom name and coordinate lists are not the&
             &same size in write_GauIn_file',6,'size(atomList)',size(atomList),'size(cartesians,2)',size(cartesians,2))
-            do i = 1, size(atomList)
-
-             write(unitnumber,'(1x,A,A,G0,A,1x,F15.8,1x,F15.8,1x,F15.8)') trim(atomList(i)),&
-             '(znuc=',MQC_Scalar_Get_Intrinsic_Real(nuclearCharges%at(i)),')',&
-             MQC_Scalar_Get_Intrinsic_Real(cartesians%at(1,i)),&
-             MQC_Scalar_Get_Intrinsic_Real(cartesians%at(2,i)),MQC_Scalar_Get_Intrinsic_Real(cartesians%at(3,i))
-
-             ! Copy of the above two lives 
-             !write(unitnumber,'(1x,A,F15.8,1x,F15.8,1x,F15.8)') atomList(i),MQC_Scalar_Get_Intrinsic_Real(cartesians%at(1,i)),&
-             !MQC_Scalar_Get_Intrinsic_Real(cartesians%at(2,i)),MQC_Scalar_Get_Intrinsic_Real(cartesians%at(3,i))
-
+            
+          do i = 1, size(atomList)
+               write(unitnumber,'(1x,A,A,G0,A,1x,F15.8,1x,F15.8,1x,F15.8)') trim(atomList(i)),&
+               '(znuc=',MQC_Scalar_Get_Intrinsic_Real(nuclearCharges%at(i)),')',&
+               MQC_Scalar_Get_Intrinsic_Real(cartesians%at(1,i)),&
+               MQC_Scalar_Get_Intrinsic_Real(cartesians%at(2,i)),MQC_Scalar_Get_Intrinsic_Real(cartesians%at(3,i))
+          endDo
+          
+          write(unitnumber,'(A)') ''
+          
+          ! TRYING TO GET POINT CHARGE 
+          do
+             write(unitnumber,'(A,1x,F15.8,1x,F15.8,1x,F15.8)') MQC_Scalar_Get_Intrinsic_Real(point_charge%at(1),&
+              MQC_Scalar_Get_Intrinsic_Real(cartesians%at(1,1)),&
+              MQC_Scalar_Get_Intrinsic_Real(cartesians%at(2,1)),MQC_Scalar_Get_Intrinsic_Real(cartesians%at(3,1))
             endDo
+
+          !write(unitnumber,'(A)') ''
+          !write(unitnumber,'(F3.1,1X,F3.2,1X,F3.2,1X,F3.2)')  
+          
+          !*****
+          !write(unitnumber,'(1x,F15.8,1x,F15.8,1x,F15.8)') MQC_Scalar_Get_Intrinsic_Real(particle_charge%at(1,0)),&
+          !MQC_Scalar_Get_Intrinsic_Real(x%at(2,0)),&
+          !MQC_Scalar_Get_Intrinsic_Real(y%at(3,0)),MQC_Scalar_Get_Intrinsic_Real(y%at(4,0))
+          !*****
+
+
                       write(unitnumber,'(A)') ''
                   endIf
                   if(present(saveMat).and.saveMat) then

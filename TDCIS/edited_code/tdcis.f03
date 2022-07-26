@@ -60,7 +60,6 @@
       logical::project_geom=.true.,doGauFMat=.false.
       type(mqc_gaussian_unformatted_matrix_file)::temp_file
       character(len=256)::command_message
-      type(mqc_matrix)::CI_Eigenvectors, CI_Eigenvectors_old
       !character(len=80),dimension(:),allocatable::project_basis=''
 
 !
@@ -541,7 +540,7 @@
 !   Turn it off by commenting lines 543 - 589 & line 898
 !
 !
-do l=0,3
+do l=0,6
         if (l.eq.0) then
             print*,"######################################################"
             print*,"## Initial Iteration using Input nuclear parameters ##"
@@ -560,12 +559,12 @@ do l=0,3
             i = 3                                                             ! i is the atom number
             z = moleculeInfo%Cartesian_Coordinates%at(3,i)                    ! var z stores the coordinates to stretch 
             print*,"Z_init: ", z                                                   ! prints initial z coordinates...
-            z = z + 0.00                                                      ! stretches z by +0.1 Angstrom
+            z = z + 0.05                                                      ! stretches z by +0.1 Angstrom
             print*,"Z_finl: ", z                                                   ! prints new z
             call moleculeInfo%Cartesian_Coordinates%put(z,3,i)                !inserts stretched z to form new coordinates 
             call moleculeInfo%Cartesian_Coordinates%print(iOut,'Coordinates') !prints out the altered coordinate
             
-
+            
 ! *************Projecting Geometry********************
 
             do i = 1,size(fileList)
@@ -583,6 +582,7 @@ do l=0,3
                 exitstat=exit_stat_number,cmdstat=command_stat_number,&
                 cmdmsg=command_message)
             write(*,*) 'finished executing Gaussian'  ! Test line             !character(len=80)::gauss_exe='$g16root/g16/g16'
+
          endif
 ! 
 !  **************************************************
@@ -764,37 +764,11 @@ do l=0,3
     !
           if(iPrint.ge.1) write(iOut,'(1X,A)') 'Diagonalizing CI Hamiltonian'//NEW_LINE('A')
           if(ci_string.eq.'oci'.or.ci_string.eq.'ocas') then
-           
-           
-            !******************************************************************************************************************
-            CI_Eigenvectors_old = wavefunction%pscf_amplitudes                                             ! added
-!            call CI_Eigenvectors_old%print(iOut,'CI Eigenvectors Old',Blank_At_Bottom=.true.) ! delete this
-            !*******
-
-            call CI_Hamiltonian%diag(wavefunction%pscf_energies,wavefunction%pscf_amplitudes)  ! Original
-            !
-
-            !********
-            call wavefunction%pscf_amplitudes%print(iOut,'New eigenvectors',Blank_At_Bottom=.true.) ! delete this
-            do i = 1, size(wavefunction%pscf_amplitudes, 1)
-              call mqc_print(dot_product(dagger(CI_Eigenvectors_old%vat([0],[i])),&
-                wavefunction%pscf_amplitudes%vat([0],[i])),6,'Dot product '//trim(num2char(i)))
-             ! call wavefunction%pscf_amplitudes%put(dot_product(dagger(CI_Eigenvectors_old%vat([0],[i]),&
-             !   CI_Eigenvectors%vat([0],[i]),[i]))
-            endDo
-            call wavefunction%pscf_amplitudes%print(iOut,'CI Eigenvectors New',Blank_At_Bottom=.true.)  ! delete this
-            
-            !*******************************************************************************************************************
-
-           !!!projecting old_ci_vector onto the new
-           !!!end
-
-
-
-
+            call CI_Hamiltonian%diag(wavefunction%pscf_energies,wavefunction%pscf_amplitudes)
           elseIf(ci_string.eq.'noci') then
             call CI_Hamiltonian%eigensys(CI_Overlap,wavefunction%pscf_energies,wavefunction%pscf_amplitudes)
           endIf
+
           if(iPrint.ge.4) call wavefunction%pscf_amplitudes%print(iOut,'CI Eigenvectors',Blank_At_Bottom=.true.)
           if(iPrint.ge.3) call wavefunction%pscf_energies%print(iOut,'CI Eigenvalues',Blank_At_Bottom=.true.)
     !
@@ -891,21 +865,6 @@ do l=0,3
               endDo
             endIf
             call print_coeffs_and_pops(iOut,iPrint,1,state_coeffs,'TD State')
-
-            
-
-
-            !****************
-           ! td_ci_coeffs_old = td_ci_coeffs
-           ! call 
-           ! do k = 1,size(td_ci_coeffs)
-           !   dot_product(dagger(td_ci_coeffs_old%vat([0],[k])),td_ci_coeffs%vat([0],[k]),k)
-           ! endDo
-            !****************
-
-
-
-
 
             call td_ci_coeffs%init(size(wavefunction%pscf_amplitudes,1))
             do j = 1, size(state_coeffs)

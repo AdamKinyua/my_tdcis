@@ -1,0 +1,352 @@
+
+ *************************************************************************
+  Real-Time Truncated Configuration Interaction Time Evolution Calculator
+ *************************************************************************
+
+                              Version 21.10.1
+
+ L. M. Thompson, Louisville KY, 2021.
+
+ MO coefficients from matrix file 1
+ 
+                  1             2
+       1      0.534308      1.418199
+       2      0.534308     -1.418199
+ 
+ nBasis =              2
+ 
+ nAlpha =              1
+ 
+ nBeta =              1
+ 
+ nElectrons =              2
+ 
+ Charge =              0
+ 
+ Multiplicity =              1
+ 
+Wavefunction Type = R                                                                                                                                                                                                                                                               
+Complex   =          F
+ 
+ Overlap matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      1.000000
+       2      0.751403      1.000000
+ 
+ Core Hamiltonian matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1     -1.220844
+       2     -1.129914     -1.220844
+ 
+ Orbital Energies
+ 
+       1       -0.640876
+       2        0.838085
+ 
+ Molecular orbital coefficients
+ 
+                  1             2
+       1      0.534308      1.418199
+       2      0.534308     -1.418199
+ 
+ Density matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.285485
+       2      0.285485      0.285485
+ 
+ SCF Density matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.285485
+       2      0.285485      0.285485
+ 
+ Fock matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1     -0.457044
+       2     -0.665389     -0.457044
+ 
+ AO dipole x integrals
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.000000
+       2      0.000000      0.000000
+ AO dipole y integrals
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.000000
+       2      0.000000      0.000000
+ AO dipole z integrals
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.000000
+       2      0.425984      1.133836
+ AO 2ERIs set 1
+ Regular 2ERIs
+ (  1,  1|  1,  1) =      0.77460594
+ (  1,  1|  1,  2) =      0.52662935
+ (  1,  1|  2,  1) =      0.52662935
+ (  1,  1|  2,  2) =      0.62332357
+ (  1,  2|  1,  1) =      0.52662935
+ (  1,  2|  1,  2) =      0.39906874
+ (  1,  2|  2,  1) =      0.39906874
+ (  1,  2|  2,  2) =      0.52662935
+ (  2,  1|  1,  1) =      0.52662935
+ (  2,  1|  1,  2) =      0.39906874
+ (  2,  1|  2,  1) =      0.39906874
+ (  2,  1|  2,  2) =      0.52662935
+ (  2,  2|  1,  1) =      0.62332357
+ (  2,  2|  1,  2) =      0.52662935
+ (  2,  2|  2,  1) =      0.52662935
+ (  2,  2|  2,  2) =      0.77460594
+ Found RHF wavefunction
+
+ ######################################################
+ ## Initial Iteration using Input nuclear parameters ##
+ ######################################################
+ Coordinates
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+       3      0.000000      1.133836
+ 
+ #####################################
+ ##### Printing Updated Dipoles ######
+ #####################################
+ 
+ 
+ nBasis =              2
+ 
+ nAlpha =              1
+ 
+ nBeta =              1
+ 
+ nElectrons =              2
+ 
+ Charge =              0
+ 
+ Multiplicity =              1
+ 
+Wavefunction Type = R                                                                                                                                                                                                                                                               
+Complex   =          F
+ 
+ Overlap matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      1.000000
+       2      0.751403      1.000000
+ 
+ Core Hamiltonian matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1     -1.220844
+       2     -1.129914     -1.220844
+ 
+ Orbital Energies
+ 
+       1       -0.640876
+       2        0.838085
+ 
+ Molecular orbital coefficients
+ 
+                  1             2
+       1      0.534308      1.418199
+       2      0.534308     -1.418199
+ 
+ Density matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.285485
+       2      0.285485      0.285485
+ 
+ SCF Density matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.285485
+       2      0.285485      0.285485
+ 
+ Fock matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1     -0.457044
+       2     -0.665389     -0.457044
+ 
+ AO dipole x integrals
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.000000
+       2      0.000000      0.000000
+ AO dipole y integrals
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.000000
+       2      0.000000      0.000000
+ AO dipole z integrals
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.000000
+       2      0.425984      1.133836
+ 
+ 
+           NUCLEAR CARTESIAN COORDINATES          
+ -------------------------------------------------
+  Element              Coordinates (Ang)           
+                 X             Y             Z
+ -------------------------------------------------
+     H       0.000000      0.000000      0.000000
+     H       0.000000      0.000000      0.600000
+ -------------------------------------------------
+ Nuclear Repulsion Energy (au) =       0.881962
+ 
+ Building Determinant Strings
+ Permitted substitution levels
+       1               1
+       2               2
+ 
+ Excluding   0 core orbitals
+ Excluding   0 virtual orbitals
+Adding    0 core orbitals to string
+Alpha Strings
+       1                                                                 1
+       2                                                                10
+Beta Strings
+       1                                                                 1
+       2                                                                10
+ Transforming MO integrals
+
+ MO Basis Core Hamiltonian
+ 
+                  1             2
+       1     -1.342214      0.000000
+       2      0.000000     -0.365771
+ Doing O(N**5) integral transformation algorithm
+ Transformed MO 2ERIs (aa|aa)
+ (  1,  1|  1,  1) =      0.70133773
+ (  1,  1|  1,  2) =     -0.00000000
+ (  1,  1|  2,  1) =     -0.00000000
+ (  1,  1|  2,  2) =      0.68879310
+ (  1,  2|  1,  1) =      0.00000000
+ (  1,  2|  1,  2) =      0.17373064
+ (  1,  2|  2,  1) =      0.17373064
+ (  1,  2|  2,  2) =      0.00000000
+ (  2,  1|  1,  1) =     -0.00000000
+ (  2,  1|  1,  2) =      0.17373064
+ (  2,  1|  2,  1) =      0.17373064
+ (  2,  1|  2,  2) =     -0.00000000
+ (  2,  2|  1,  1) =      0.68879310
+ (  2,  2|  1,  2) =     -0.00000000
+ (  2,  2|  2,  1) =     -0.00000000
+ (  2,  2|  2,  2) =      0.72450602
+ Nuclear dipole
+       1        0.000000
+       2        0.000000
+       3        1.133836
+ 
+ Building orthogonal CI Hamiltonian matrix
+ 
+
+ CI Hamiltonian
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1     -1.983090
+       2      0.000000     -1.019191
+       3      0.000000      0.173731     -1.019191
+       4      0.173731      0.000000      0.000000     -0.007035
+ 
+ Building orthogonal CI dipole matrices
+ MO dipole integrals axis 1
+ 
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+ 
+ 
+
+ SD dipole integrals axis 1
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1      0.000000
+       2      0.000000      0.000000
+       3      0.000000      0.000000      0.000000
+       4      0.000000      0.000000      0.000000      0.000000
+ 
+ SD dipole including nuclear term axis 1
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1      0.000000
+       2      0.000000      0.000000
+       3      0.000000      0.000000      0.000000
+       4      0.000000      0.000000      0.000000      0.000000
+ 
+ MO dipole integrals axis 2
+ 
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+ 
+ 
+
+ SD dipole integrals axis 2
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1      0.000000
+       2      0.000000      0.000000
+       3      0.000000      0.000000      0.000000
+       4      0.000000      0.000000      0.000000      0.000000
+ 
+ SD dipole including nuclear term axis 2
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1      0.000000
+       2      0.000000      0.000000
+       3      0.000000      0.000000      0.000000
+       4      0.000000      0.000000      0.000000      0.000000
+ 
+ MO dipole integrals axis 3
+ 
+                  1             2
+       1      0.566918     -0.859170
+       2     -0.859170      0.566918
+ 
+ 
+
+ SD dipole integrals axis 3
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1      1.133836
+       2     -0.859170      1.133836
+       3     -0.859170      0.000000      1.133836
+       4      0.000000     -0.859170     -0.859170      1.133836
+ 
+ SD dipole including nuclear term axis 3
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1     -0.000000
+       2      0.859170     -0.000000
+       3      0.859170      0.000000     -0.000000
+       4      0.000000      0.859170      0.859170     -0.000000
+ 
+ Diagonalizing CI Hamiltonian
+
+ CI Eigenvectors Old
+ MQC ERROR: Matrix storage type unspecified in MQC_Print_Matrix_Algebra1
+    Matrix%Storage = 

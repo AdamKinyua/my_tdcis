@@ -1,0 +1,908 @@
+
+ *************************************************************************
+  Real-Time Truncated Configuration Interaction Time Evolution Calculator
+ *************************************************************************
+
+                              Version 21.10.1
+
+ L. M. Thompson, Louisville KY, 2021.
+
+ MO coefficients from matrix file 1
+ 
+                  1             2
+       1      0.534308      1.418199
+       2      0.534308     -1.418199
+ 
+ nBasis =              2
+ 
+ nAlpha =              1
+ 
+ nBeta =              1
+ 
+ nElectrons =              2
+ 
+ Charge =              0
+ 
+ Multiplicity =              1
+ 
+Wavefunction Type = R                                                                                                                                                                                                                                                               
+Complex   =          F
+ 
+ Overlap matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      1.000000
+       2      0.751403      1.000000
+ 
+ Core Hamiltonian matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1     -1.220844
+       2     -1.129914     -1.220844
+ 
+ Orbital Energies
+ 
+       1       -0.640876
+       2        0.838085
+ 
+ Molecular orbital coefficients
+ 
+                  1             2
+       1      0.534308      1.418199
+       2      0.534308     -1.418199
+ 
+ Density matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.285485
+       2      0.285485      0.285485
+ 
+ SCF Density matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.285485
+       2      0.285485      0.285485
+ 
+ Fock matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1     -0.457044
+       2     -0.665389     -0.457044
+ 
+ AO dipole x integrals
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.000000
+       2      0.000000      0.000000
+ AO dipole y integrals
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.000000
+       2      0.000000      0.000000
+ AO dipole z integrals
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.000000
+       2      0.425984      1.133836
+ AO 2ERIs set 1
+ Regular 2ERIs
+ (  1,  1|  1,  1) =      0.77460594
+ (  1,  1|  1,  2) =      0.52662935
+ (  1,  1|  2,  1) =      0.52662935
+ (  1,  1|  2,  2) =      0.62332357
+ (  1,  2|  1,  1) =      0.52662935
+ (  1,  2|  1,  2) =      0.39906874
+ (  1,  2|  2,  1) =      0.39906874
+ (  1,  2|  2,  2) =      0.52662935
+ (  2,  1|  1,  1) =      0.52662935
+ (  2,  1|  1,  2) =      0.39906874
+ (  2,  1|  2,  1) =      0.39906874
+ (  2,  1|  2,  2) =      0.52662935
+ (  2,  2|  1,  1) =      0.62332357
+ (  2,  2|  1,  2) =      0.52662935
+ (  2,  2|  2,  1) =      0.52662935
+ (  2,  2|  2,  2) =      0.77460594
+ Found RHF wavefunction
+
+ ######################################################
+ ## Initial Iteration using Input nuclear parameters ##
+ ######################################################
+ Coordinates
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+       3      0.000000      1.133836
+ 
+ #####################################
+ ##### Printing Updated Dipoles ######
+ #####################################
+ 
+ 
+ nBasis =              2
+ 
+ nAlpha =              1
+ 
+ nBeta =              1
+ 
+ nElectrons =              2
+ 
+ Charge =              0
+ 
+ Multiplicity =              1
+ 
+Wavefunction Type = R                                                                                                                                                                                                                                                               
+Complex   =          F
+ 
+ Overlap matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      1.000000
+       2      0.751403      1.000000
+ 
+ Core Hamiltonian matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1     -1.220844
+       2     -1.129914     -1.220844
+ 
+ Orbital Energies
+ 
+       1       -0.640876
+       2        0.838085
+ 
+ Molecular orbital coefficients
+ 
+                  1             2
+       1      0.534308      1.418199
+       2      0.534308     -1.418199
+ 
+ Density matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.285485
+       2      0.285485      0.285485
+ 
+ SCF Density matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.285485
+       2      0.285485      0.285485
+ 
+ Fock matrix
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1     -0.457044
+       2     -0.665389     -0.457044
+ 
+ AO dipole x integrals
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.000000
+       2      0.000000      0.000000
+ AO dipole y integrals
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.000000
+       2      0.000000      0.000000
+ AO dipole z integrals
+ 
+   The matrix being printed is symmetric
+                  1             2
+       1      0.000000
+       2      0.425984      1.133836
+ 
+ 
+           NUCLEAR CARTESIAN COORDINATES          
+ -------------------------------------------------
+  Element              Coordinates (Ang)           
+                 X             Y             Z
+ -------------------------------------------------
+     H       0.000000      0.000000      0.000000
+     H       0.000000      0.000000      0.600000
+ -------------------------------------------------
+ Nuclear Repulsion Energy (au) =       0.881962
+ 
+ Building Determinant Strings
+ Permitted substitution levels
+       1               1
+       2               2
+ 
+ Excluding   0 core orbitals
+ Excluding   0 virtual orbitals
+Adding    0 core orbitals to string
+Alpha Strings
+       1                                                                 1
+       2                                                                10
+Beta Strings
+       1                                                                 1
+       2                                                                10
+ Transforming MO integrals
+
+ MO Basis Core Hamiltonian
+ 
+                  1             2
+       1     -1.342214      0.000000
+       2      0.000000     -0.365771
+ Doing O(N**5) integral transformation algorithm
+ Transformed MO 2ERIs (aa|aa)
+ (  1,  1|  1,  1) =      0.70133773
+ (  1,  1|  1,  2) =     -0.00000000
+ (  1,  1|  2,  1) =     -0.00000000
+ (  1,  1|  2,  2) =      0.68879310
+ (  1,  2|  1,  1) =      0.00000000
+ (  1,  2|  1,  2) =      0.17373064
+ (  1,  2|  2,  1) =      0.17373064
+ (  1,  2|  2,  2) =      0.00000000
+ (  2,  1|  1,  1) =     -0.00000000
+ (  2,  1|  1,  2) =      0.17373064
+ (  2,  1|  2,  1) =      0.17373064
+ (  2,  1|  2,  2) =     -0.00000000
+ (  2,  2|  1,  1) =      0.68879310
+ (  2,  2|  1,  2) =     -0.00000000
+ (  2,  2|  2,  1) =     -0.00000000
+ (  2,  2|  2,  2) =      0.72450602
+ Nuclear dipole
+       1        0.000000
+       2        0.000000
+       3        1.133836
+ 
+ Building orthogonal CI Hamiltonian matrix
+ 
+
+ CI Hamiltonian
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1     -1.983090
+       2      0.000000     -1.019191
+       3      0.000000      0.173731     -1.019191
+       4      0.173731      0.000000      0.000000     -0.007035
+ 
+ Building orthogonal CI dipole matrices
+ MO dipole integrals axis 1
+ 
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+ 
+ 
+
+ SD dipole integrals axis 1
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1      0.000000
+       2      0.000000      0.000000
+       3      0.000000      0.000000      0.000000
+       4      0.000000      0.000000      0.000000      0.000000
+ 
+ SD dipole including nuclear term axis 1
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1      0.000000
+       2      0.000000      0.000000
+       3      0.000000      0.000000      0.000000
+       4      0.000000      0.000000      0.000000      0.000000
+ 
+ MO dipole integrals axis 2
+ 
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+ 
+ 
+
+ SD dipole integrals axis 2
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1      0.000000
+       2      0.000000      0.000000
+       3      0.000000      0.000000      0.000000
+       4      0.000000      0.000000      0.000000      0.000000
+ 
+ SD dipole including nuclear term axis 2
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1      0.000000
+       2      0.000000      0.000000
+       3      0.000000      0.000000      0.000000
+       4      0.000000      0.000000      0.000000      0.000000
+ 
+ MO dipole integrals axis 3
+ 
+                  1             2
+       1      0.566918     -0.859170
+       2     -0.859170      0.566918
+ 
+ 
+
+ SD dipole integrals axis 3
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1      1.133836
+       2     -0.859170      1.133836
+       3     -0.859170      0.000000      1.133836
+       4      0.000000     -0.859170     -0.859170      1.133836
+ 
+ SD dipole including nuclear term axis 3
+   The matrix being printed is hermitian
+                  1             2             3             4
+       1     -0.000000
+       2      0.859170     -0.000000
+       3      0.859170      0.000000     -0.000000
+       4      0.000000      0.859170      0.859170     -0.000000
+ 
+ Diagonalizing CI Hamiltonian
+
+ CI Eigenvectors
+   The matrix being printed is antisymmetric
+                  1             2             3             4
+       1      0.996215
+       2      0.000000      0.707107
+       3      0.000000     -0.707107      0.707107
+       4     -0.086918      0.000000      0.000000      0.996215
+ 
+ CI Eigenvalues
+       1       -1.998248
+       2       -1.192922
+       3       -0.845461
+       4        0.008123
+ 
+ CI Dipole Eigenvectors axis 1
+   This is a diagonal matrix, so only diagonal elements are printed
+       1      1.000000
+       2      1.000000
+       3      1.000000
+       4      1.000000
+ 
+ CI Dipole Eigenvalues axis 1
+       1        0.000000
+       2        0.000000
+       3        0.000000
+       4        0.000000
+ 
+ State basis dipoles and transition dipoles on axis 1
+                  1             2             3             4
+       1      0.000000     -0.000000     -0.000000      0.000000
+       2      0.000000      0.000000      0.000000     -0.000000
+       3      0.000000     -0.000000      0.000000     -0.000000
+       4     -0.000000      0.000000      0.000000      0.000000
+ 
+ CI Dipole Eigenvectors axis 2
+   This is a diagonal matrix, so only diagonal elements are printed
+       1      1.000000
+       2      1.000000
+       3      1.000000
+       4      1.000000
+ 
+ CI Dipole Eigenvalues axis 2
+       1        0.000000
+       2        0.000000
+       3        0.000000
+       4        0.000000
+ 
+ State basis dipoles and transition dipoles on axis 2
+                  1             2             3             4
+       1      0.000000     -0.000000     -0.000000      0.000000
+       2      0.000000      0.000000      0.000000     -0.000000
+       3      0.000000     -0.000000      0.000000     -0.000000
+       4     -0.000000      0.000000      0.000000      0.000000
+ 
+ CI Dipole Eigenvectors axis 3
+                  1             2             3             4
+       1      0.500000      0.028284      0.706541      0.500000
+       2     -0.500000      0.706541     -0.028284      0.500000
+       3     -0.500000     -0.706541      0.028284      0.500000
+       4      0.500000     -0.028284     -0.706541      0.500000
+ 
+ CI Dipole Eigenvalues axis 3
+       1       -1.718340
+       2       -0.000000
+       3       -0.000000
+       4        1.718340
+ 
+ State basis dipoles and transition dipoles on axis 3
+   The matrix being printed is symmetric
+                  1             2             3             4
+       1     -0.000000
+       2     -0.000000     -0.000000
+       3      1.104841     -0.000000     -0.000000
+       4      0.000000     -0.000000      1.316062     -0.000000
+ 
+ Defaulting to t=0 field aligned along z-axis.
+
+ ############################################
+ #                                          #
+ #            INITIAL CONDITIONS            #
+ #            ------------------            #
+ #                                          #
+ # 1) Simulation time:       17.000000 au   #
+ # 2) Number of steps:              10      #
+ # 3) Time step:              1.610000 au   #
+ # 4) State weights:                        #
+ #                          1 = 1.0000      #
+ # 5) Field parameters:                     #
+ #    Pulse shape:          continuous      #
+ #    Magnitude:              0.000000 au   #
+ #    Field X:                0.000000      #
+ #    Field Y:                0.000000      #
+ #    Field Z:                0.000000      #
+ #    t0:                     0.000000      #
+ #    omega:                  0.977000      #
+ #    sigma:                 16.100000      #
+ #    beta:                   3.000000      #
+ #                                          #
+ ############################################
+ 
+ STARTING TIME PROPAGATION
+
+ ============================================
+
+ Time step:     0.000000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 4 TD State coefficients
+  1 = 1.000000, 1 = 0.000000, 1 = 0.000000, 1 = 0.000000
+
+ Largest 4 TD State populations
+  1 = 1.000000, 1 = 0.000000, 1 = 0.000000, 1 = 0.000000
+
+ Largest 4 TD CI coefficients
+  1 = 0.996215, 4 = -0.086918, 1 = 0.000000, 1 = 0.000000
+
+ Largest 4 TD CI populations
+  1 = 0.992445, 4 = 0.007555, 1 = 0.000000, 1 = 0.000000
+
+ Energy (au) =    -1.99824802
+ 
+ MO Density matrix
+ 
+                  1             2
+       1      0.992445      0.000000
+       2      0.000000      0.007555
+ 
+ AO Density matrix
+ 
+                  1             2
+       1      0.298524      0.268134
+       2      0.268134      0.298524
+ 
+ Total dipole
+       1        0.000000
+       2        0.000000
+       3       -0.000000
+ 
+ ============================================
+
+ Time step:     1.610000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 4 TD State coefficients
+  1 = -0.997145 -0.075515i, 4 = 0.000000 +0.000000i, 2 = -0.000000 +0.000000i, 3 = -0.000000 -0.000000i
+
+ Largest 4 TD State populations
+  1 = 1.000000, 4 = 0.000000, 2 = 0.000000, 3 = 0.000000
+
+ Largest 4 TD CI coefficients
+  1 = -0.993371 -0.075229i, 4 = 0.086670 +0.006564i, 3 = 0.000000 -0.000000i, 2 = -0.000000 -0.000000i
+
+ Largest 4 TD CI populations
+  1 = 0.992445, 4 = 0.007555, 3 = 0.000000, 2 = 0.000000
+
+ Energy (au) =    -1.99824802   -0.00000000i
+ 
+ MO Density matrix
+ 
+                       1                       2
+       1     0.99245    0.00000i    -0.00000    0.00000i
+       2    -0.00000   -0.00000i     0.00755    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.29852    0.00000i     0.26813   -0.00000i
+       2     0.26813    0.00000i     0.29852   -0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3      -0.00000    0.00000i
+ 
+ ============================================
+
+ Time step:     3.220000 au
+
+ Applied field vector
+       1       -0.000000
+       2       -0.000000
+       3       -0.000000
+ 
+ Largest 4 TD State coefficients
+  1 = 0.988595 +0.150598i, 4 = 0.000000 -0.000000i, 2 = 0.000000 -0.000000i, 3 = 0.000000 +0.000000i
+
+ Largest 4 TD State populations
+  1 = 1.000000, 4 = 0.000000, 2 = 0.000000, 3 = 0.000000
+
+ Largest 4 TD CI coefficients
+  1 = 0.984854 +0.150028i, 4 = -0.085927 -0.013090i, 3 = -0.000000 +0.000000i, 2 = 0.000000 -0.000000i
+
+ Largest 4 TD CI populations
+  1 = 0.992445, 4 = 0.007555, 3 = 0.000000, 2 = 0.000000
+
+ Energy (au) =    -1.99824802   -0.00000000i
+ 
+ MO Density matrix
+ 
+                       1                       2
+       1     0.99245    0.00000i    -0.00000    0.00000i
+       2    -0.00000   -0.00000i     0.00755    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.29852    0.00000i     0.26813   -0.00000i
+       2     0.26813    0.00000i     0.29852    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3      -0.00000   -0.00000i
+ 
+ ============================================
+
+ Time step:     4.830000 au
+
+ Applied field vector
+       1       -0.000000
+       2       -0.000000
+       3       -0.000000
+ 
+ Largest 4 TD State coefficients
+  1 = -0.974400 -0.224822i, 4 = 0.000000 +0.000000i, 3 = -0.000000 -0.000000i, 2 = -0.000000 +0.000000i
+
+ Largest 4 TD State populations
+  1 = 1.000000, 4 = 0.000000, 3 = 0.000000, 2 = 0.000000
+
+ Largest 4 TD CI coefficients
+  1 = -0.970712 -0.223971i, 4 = 0.084693 +0.019541i, 3 = 0.000000 -0.000000i, 2 = -0.000000 -0.000000i
+
+ Largest 4 TD CI populations
+  1 = 0.992445, 4 = 0.007555, 3 = 0.000000, 2 = 0.000000
+
+ Energy (au) =    -1.99824802   -0.00000000i
+ 
+ MO Density matrix
+ 
+                       1                       2
+       1     0.99245    0.00000i     0.00000    0.00000i
+       2     0.00000   -0.00000i     0.00755    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.29852    0.00000i     0.26813   -0.00000i
+       2     0.26813    0.00000i     0.29852    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3      -0.00000    0.00000i
+ 
+ ============================================
+
+ Time step:     6.440000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 4 TD State coefficients
+  1 = 0.954640 +0.297761i, 4 = 0.000000 -0.000000i, 2 = -0.000000 -0.000000i, 3 = -0.000000 -0.000000i
+
+ Largest 4 TD State populations
+  1 = 1.000000, 4 = 0.000000, 2 = 0.000000, 3 = 0.000000
+
+ Largest 4 TD CI coefficients
+  1 = 0.951027 +0.296634i, 4 = -0.082976 -0.025881i, 3 = 0.000000 +0.000000i, 2 = -0.000000 -0.000000i
+
+ Largest 4 TD CI populations
+  1 = 0.992445, 4 = 0.007555, 3 = 0.000000, 2 = 0.000000
+
+ Energy (au) =    -1.99824802   +0.00000000i
+ 
+ MO Density matrix
+ 
+                       1                       2
+       1     0.99245    0.00000i     0.00000   -0.00000i
+       2     0.00000    0.00000i     0.00755    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.29852    0.00000i     0.26813    0.00000i
+       2     0.26813   -0.00000i     0.29852    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3      -0.00000   -0.00000i
+ 
+ ============================================
+
+ Time step:     8.050000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 4 TD State coefficients
+  1 = -0.929429 -0.369000i, 4 = 0.000000 +0.000000i, 3 = 0.000000 -0.000000i, 2 = 0.000000 -0.000000i
+
+ Largest 4 TD State populations
+  1 = 1.000000, 4 = 0.000000, 3 = 0.000000, 2 = 0.000000
+
+ Largest 4 TD CI coefficients
+  1 = -0.925912 -0.367604i, 4 = 0.080785 +0.032073i, 2 = 0.000000 -0.000000i, 3 = -0.000000 -0.000000i
+
+ Largest 4 TD CI populations
+  1 = 0.992445, 4 = 0.007555, 2 = 0.000000, 3 = 0.000000
+
+ Energy (au) =    -1.99824802   +0.00000000i
+ 
+ MO Density matrix
+ 
+                       1                       2
+       1     0.99245    0.00000i     0.00000    0.00000i
+       2     0.00000   -0.00000i     0.00755    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.29852    0.00000i     0.26813   -0.00000i
+       2     0.26813    0.00000i     0.29852    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3      -0.00000    0.00000i
+ 
+ ============================================
+
+ Time step:     9.660000 au
+
+ Applied field vector
+       1       -0.000000
+       2       -0.000000
+       3       -0.000000
+ 
+ Largest 4 TD State coefficients
+  1 = 0.898910 +0.438132i, 4 = 0.000000 -0.000000i, 3 = 0.000000 +0.000000i, 2 = 0.000000 +0.000000i
+
+ Largest 4 TD State populations
+  1 = 1.000000, 4 = 0.000000, 3 = 0.000000, 2 = 0.000000
+
+ Largest 4 TD CI coefficients
+  1 = 0.895508 +0.436474i, 4 = -0.078132 -0.038082i, 2 = 0.000000 +0.000000i, 3 = 0.000000 +0.000000i
+
+ Largest 4 TD CI populations
+  1 = 0.992445, 4 = 0.007555, 2 = 0.000000, 3 = 0.000000
+
+ Energy (au) =    -1.99824802   +0.00000000i
+ 
+ MO Density matrix
+ 
+                       1                       2
+       1     0.99245    0.00000i     0.00000   -0.00000i
+       2     0.00000    0.00000i     0.00755    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.29852    0.00000i     0.26813    0.00000i
+       2     0.26813   -0.00000i     0.29852    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3      -0.00000    0.00000i
+ 
+ ============================================
+
+ Time step:    11.270000 au
+
+ Applied field vector
+       1       -0.000000
+       2       -0.000000
+       3       -0.000000
+ 
+ Largest 4 TD State coefficients
+  1 = -0.863258 -0.504762i, 4 = 0.000000 +0.000000i, 3 = -0.000000 +0.000000i, 2 = -0.000000 +0.000000i
+
+ Largest 4 TD State populations
+  1 = 1.000000, 4 = 0.000000, 3 = 0.000000, 2 = 0.000000
+
+ Largest 4 TD CI coefficients
+  1 = -0.859991 -0.502852i, 4 = 0.075033 +0.043873i, 2 = -0.000000 +0.000000i, 3 = -0.000000 +0.000000i
+
+ Largest 4 TD CI populations
+  1 = 0.992445, 4 = 0.007555, 2 = 0.000000, 3 = 0.000000
+
+ Energy (au) =    -1.99824802   +0.00000000i
+ 
+ MO Density matrix
+ 
+                       1                       2
+       1     0.99245    0.00000i    -0.00000   -0.00000i
+       2    -0.00000    0.00000i     0.00755    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.29852    0.00000i     0.26813    0.00000i
+       2     0.26813   -0.00000i     0.29852    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3      -0.00000    0.00000i
+ 
+ ============================================
+
+ Time step:    12.880000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 4 TD State coefficients
+  1 = 0.822676 +0.568510i, 4 = 0.000000 -0.000000i, 3 = -0.000000 +0.000000i, 2 = 0.000000 -0.000000i
+
+ Largest 4 TD State populations
+  1 = 1.000000, 4 = 0.000000, 3 = 0.000000, 2 = 0.000000
+
+ Largest 4 TD CI coefficients
+  1 = 0.819563 +0.566358i, 4 = -0.071506 -0.049414i, 3 = -0.000000 +0.000000i, 2 = -0.000000 +0.000000i
+
+ Largest 4 TD CI populations
+  1 = 0.992445, 4 = 0.007555, 3 = 0.000000, 2 = 0.000000
+
+ Energy (au) =    -1.99824802   -0.00000000i
+ 
+ MO Density matrix
+ 
+                       1                       2
+       1     0.99245    0.00000i    -0.00000    0.00000i
+       2    -0.00000   -0.00000i     0.00755    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.29852    0.00000i     0.26813   -0.00000i
+       2     0.26813    0.00000i     0.29852    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3      -0.00000   -0.00000i
+ 
+ ============================================
+
+ Time step:    14.490000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 4 TD State coefficients
+  1 = -0.777397 -0.629011i, 4 = 0.000000 +0.000000i, 3 = 0.000000 -0.000000i, 2 = 0.000000 +0.000000i
+
+ Largest 4 TD State populations
+  1 = 1.000000, 4 = 0.000000, 3 = 0.000000, 2 = 0.000000
+
+ Largest 4 TD CI coefficients
+  1 = -0.774455 -0.626630i, 4 = 0.067570 +0.054673i, 3 = 0.000000 -0.000000i, 2 = 0.000000 -0.000000i
+
+ Largest 4 TD CI populations
+  1 = 0.992445, 4 = 0.007555, 3 = 0.000000, 2 = 0.000000
+
+ Energy (au) =    -1.99824802   +0.00000000i
+ 
+ MO Density matrix
+ 
+                       1                       2
+       1     0.99245    0.00000i     0.00000    0.00000i
+       2     0.00000   -0.00000i     0.00755    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.29852    0.00000i     0.26813   -0.00000i
+       2     0.26813    0.00000i     0.29852    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3      -0.00000    0.00000i
+ 
+ ============================================
+
+                 FINAL TIME STEP
+
+ ============================================
+
+ Time step:    16.100000 au
+
+ Applied field vector
+       1        0.000000
+       2        0.000000
+       3        0.000000
+ 
+ Largest 4 TD State coefficients
+  1 = 0.727677 +0.685920i, 4 = 0.000000 -0.000000i, 3 = 0.000000 +0.000000i, 2 = -0.000000 +0.000000i
+
+ Largest 4 TD State populations
+  1 = 1.000000, 4 = 0.000000, 3 = 0.000000, 2 = 0.000000
+
+ Largest 4 TD CI coefficients
+  1 = 0.724923 +0.683324i, 4 = -0.063249 -0.059619i, 3 = 0.000000 +0.000000i, 2 = 0.000000 +0.000000i
+
+ Largest 4 TD CI populations
+  1 = 0.992445, 4 = 0.007555, 3 = 0.000000, 2 = 0.000000
+
+ Energy (au) =    -1.99824802   +0.00000000i
+ 
+ MO Density matrix
+ 
+                       1                       2
+       1     0.99245    0.00000i     0.00000   -0.00000i
+       2     0.00000    0.00000i     0.00755    0.00000i
+ 
+ AO Density matrix
+ 
+                       1                       2
+       1     0.29852    0.00000i     0.26813    0.00000i
+       2     0.26813   -0.00000i     0.29852    0.00000i
+ 
+ Total dipole
+       1       0.00000    0.00000i
+       2       0.00000    0.00000i
+       3      -0.00000    0.00000i
+ 
+ 
+ 
+ ######################################################
+ ######   Nuclear Step:                     1 #########
+ ######################################################
+ Coordinates
+                  1             2
+       1      0.000000      0.000000
+       2      0.000000      0.000000
+       3      0.000000      1.133836
+ MQC ERROR: Index J badly specified in mqc_matrix_scalar_at
+    IndJ =               3
+    Mat%NCol =               2

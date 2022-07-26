@@ -1,9 +1,9 @@
  Entering Gaussian System, Link 0=g16
- Input=h2.com
- Output=h2.log
+ Input=h2_pt_charge.com
+ Output=h2_pt_charge.log
  Initial command:
- /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe "/tmp/Gau-51234.inp" -scrdir="/tmp/"
- Entering Link 1 = /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe PID=     51235.
+ /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe "/tmp/Gau-51035.inp" -scrdir="/tmp/"
+ Entering Link 1 = /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe PID=     51036.
   
  Copyright (c) 1988,1990,1992,1993,1995,1998,2003,2009,2016,
             Gaussian, Inc.  All Rights Reserved.
@@ -80,25 +80,25 @@
                 18-Jul-2022 
  ******************************************
  %chk=h2.chk
- -------------------------------------------------------
- #p hf/sto-3g nosymm int=noraff output=matrix scf=conven
- -------------------------------------------------------
- 1/38=1,172=1/1;
+ ---------------------------------------------------------------
+ #p rhf/sto-3g Charge NoSymm output=matrix scf=conven int=noraff
+ ---------------------------------------------------------------
+ 1/18=10,28=-2,38=1,125=101,172=1/1;
  2/12=2,15=1,17=6,18=5,40=1/2;
- 3/6=3,25=20,28=1,30=1/1,2,3,8,20;
+ 3/6=3,25=20,28=1,30=1,116=1/1,2,3,8,20;
  4//1;
  5/5=1,29=1/2;
  6/7=2,8=2,9=2,10=2,28=1/1;
  99/5=1,6=100000,9=1/99;
- Leave Link    1 at Mon Jul 18 16:49:16 2022, MaxMem=           0 cpu:               0.0 elap:               0.0
+ Leave Link    1 at Mon Jul 18 16:32:57 2022, MaxMem=           0 cpu:               0.0 elap:               0.5
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l101.exe)
- --
- h2
- --
+ --------------
+ h2 with charge
+ --------------
  Symbolic Z-matrix:
  Charge =  0 Multiplicity = 1
  H                     0.        0.        0. 
- H                     0.        0.        0.6 
+ H                     0.        0.        0.74 
  
  ITRead=  0  0
  MicOpt= -1 -1
@@ -116,7 +116,28 @@
  NQMom=    0.0000000   0.0000000
  NMagM=    2.7928460   2.7928460
  AtZNuc=   1.0000000   1.0000000
- Leave Link  101 at Mon Jul 18 16:49:16 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.2
+ Background charge distribution read from input stream:
+ Point Charges:
+ XYZ=    0.0000    0.0000    1.4800 Q=   -1.0000 A=    0.0000 R=    0.0000 C=    0.0000
+ Pt Chg Charge=             -1.0000 electrons
+ Pt Chg Dipole moment (Debye):
+    X=              0.0000    Y=              0.0000    Z=             -7.1087  Tot=              7.1087
+ Pt Chg Quadrupole moment (Debye-Ang):
+   XX=              0.0000   YY=              0.0000   ZZ=            -10.5209
+   XY=              0.0000   XZ=              0.0000   YZ=              0.0000
+ Pt Chg Traceless Quadrupole moment (Debye-Ang):
+   XX=              3.5070   YY=              3.5070   ZZ=             -7.0140
+   XY=              0.0000   XZ=              0.0000   YZ=              0.0000
+ Pt Chg Octapole moment (Debye-Ang**2):
+  XXX=              0.0000  YYY=              0.0000  ZZZ=            -15.5710  XYY=              0.0000
+  XXY=              0.0000  XXZ=              0.0000  XZZ=              0.0000  YZZ=              0.0000
+  YYZ=              0.0000  XYZ=              0.0000
+ Pt Chg Hexadecapole moment (Debye-Ang**3):
+ XXXX=              0.0000 YYYY=              0.0000 ZZZZ=            -23.0451 XXXY=              0.0000
+ XXXZ=              0.0000 YYYX=              0.0000 YYYZ=              0.0000 ZZZX=              0.0000
+ ZZZY=              0.0000 XXYY=              0.0000 XXZZ=              0.0000 YYZZ=              0.0000
+ XXYZ=              0.0000 YYXZ=              0.0000 ZZXY=              0.0000
+ Leave Link  101 at Mon Jul 18 16:32:58 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.2
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l202.exe)
                           Input orientation:                          
  ---------------------------------------------------------------------
@@ -124,21 +145,21 @@
  Number     Number       Type             X           Y           Z
  ---------------------------------------------------------------------
       1          1           0        0.000000    0.000000    0.000000
-      2          1           0        0.000000    0.000000    0.600000
+      2          1           0        0.000000    0.000000    0.740000
  ---------------------------------------------------------------------
  Symmetry turned off by external request.
  Stoichiometry    H2
  Framework group  D*H[C*(H.H)]
  Deg. of freedom     1
  Full point group                 D*H     NOp   8
- Rotational constants (GHZ):           0.0000000        2785.8616915        2785.8616915
- Leave Link  202 at Mon Jul 18 16:49:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.1
+ Rotational constants (GHZ):           0.0000000        1831.4649542        1831.4649542
+ Leave Link  202 at Mon Jul 18 16:32:58 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l301.exe)
  Standard basis: STO-3G (5D, 7F)
  Ernie: Thresh=  0.10000D-02 Tol=  0.10000D-05 Strict=F.
      2 basis functions,     6 primitive gaussians,     2 cartesian basis functions
      1 alpha electrons        1 beta electrons
-       nuclear repulsion energy         0.8819620182 Hartrees.
+       nuclear repulsion energy         0.7151043391 Hartrees.
  IExCor=    0 DFT=F Ex=HF Corr=None ExCW=0 ScaHFX=  1.000000
  ScaDFX=  1.000000  1.000000  1.000000  1.000000 ScalE2=  1.000000  1.000000
  IRadAn=      5 IRanWt=     -1 IRanGd=            0 ICorTp=0 IEmpDi=  4
@@ -146,19 +167,25 @@
  Integral buffers will be    131072 words long.
  Regular integral format.
  Two-electron integral symmetry is turned off.
- Leave Link  301 at Mon Jul 18 16:49:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.1
+ Background charge distribution read from rwf.
+ PtFMM for NChg=         3 BoxLen=    40.00 Levels= 0 LMax=20 SMax=     2.8 ICnFMM=     1:
+ Self energy of the charges =         0.0000000000 a.u.
+ MM   energy of the charges =         0.0000000000 a.u.
+ Nuclei-charges interaction =        -1.0726565086 a.u.
+ Nuclear repulsion after external point charges =       -0.3575521695 Hartrees.
+ Leave Link  301 at Mon Jul 18 16:32:59 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.4
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l302.exe)
  NPDir=0 NMtPBC=     1 NCelOv=     1 NCel=       1 NClECP=     1 NCelD=      1
          NCelK=      1 NCelE2=     1 NClLst=     1 CellRange=     0.0.
  One-electron integrals computed using PRISM.
- NBasis=     2 RedAO= T EigKep=  2.49D-01  NBF=     2
+ NBasis=     2 RedAO= T EigKep=  3.40D-01  NBF=     2
  NBsUse=     2 1.00D-06 EigRej= -1.00D+00 NBFU=     2
- Leave Link  302 at Mon Jul 18 16:49:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.1
+ Leave Link  302 at Mon Jul 18 16:33:00 2022, MaxMem=   104857600 cpu:               0.0 elap:               1.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l303.exe)
  DipDrv:  MaxL=1.
- Leave Link  303 at Mon Jul 18 16:49:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
+ Leave Link  303 at Mon Jul 18 16:33:01 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.5
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l308.exe)
- Leave Link  308 at Mon Jul 18 16:49:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
+ Leave Link  308 at Mon Jul 18 16:33:01 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.2
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l320.exe)
  Enter DskPsm, NBasis=   2 NBas6D=   2 NShell=   2 IDoSP=4.
  Out2e will use a cutoff of  1.00D-10
@@ -168,7 +195,7 @@
          NMat0=    0 NMatS0=      0 NMatT0=    0 NMatD0=    0 NMtDS0=    0 NMtDT0=    0
  Symmetry not used in FoFCou.
             6 integrals produced for a total of            6.
- Leave Link  320 at Mon Jul 18 16:49:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
+ Leave Link  320 at Mon Jul 18 16:33:02 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.2
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l401.exe)
  ExpMin= 1.69D-01 ExpMax= 3.43D+00 ExpMxC= 3.43D+00 IAcc=3 IRadAn=         5 AccDes= 0.00D+00
  Harris functional with IExCor=  205 and IRadAn=       5 diagonalized for initial guess.
@@ -179,9 +206,9 @@
          wScrn=  0.000000 ICntrl=       500 IOpCl=  0 I1Cent=   200000004 NGrid=           0
          NMat0=    1 NMatS0=      1 NMatT0=    0 NMatD0=    1 NMtDS0=    0 NMtDT0=    0
  Symmetry not used in FoFCou.
- Harris En= -1.15321659244667    
+ Harris En= -1.35024810604276    
  JPrj=0 DoOrth=F DoCkMO=F.
- Leave Link  401 at Mon Jul 18 16:49:16 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
+ Leave Link  401 at Mon Jul 18 16:33:02 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.5
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l502.exe)
  DoDFTU:  F
  DoIMOM:                        0
@@ -196,21 +223,60 @@
  No special actions if energy rises.
 
  Cycle   1  Pass 1  IDiag  1:
- E= -1.10112824195969    
- DIIS: error= 0.00D+00 at cycle   1 NSaved=   1.
- NSaved= 1 IEnMin= 1 EnMin= -1.10112824195969     IErMin= 1 ErrMin= 0.00D+00
- ErrMax= 0.00D+00  0.00D+00 EMaxC= 1.00D-01 BMatC= 0.00D+00 BMatP= 0.00D+00
- IDIUse=1 WtCom= 1.00D+00 WtEn= 0.00D+00
+ E= -1.25956453687663    
+ DIIS: error= 3.68D-02 at cycle   1 NSaved=   1.
+ NSaved= 1 IEnMin= 1 EnMin= -1.25956453687663     IErMin= 1 ErrMin= 3.68D-02
+ ErrMax= 3.68D-02  0.00D+00 EMaxC= 1.00D-01 BMatC= 5.42D-03 BMatP= 5.42D-03
+ IDIUse=3 WtCom= 6.32D-01 WtEn= 3.68D-01
  Coeff-Com:  0.100D+01
+ Coeff-En:   0.100D+01
  Coeff:      0.100D+01
- Gap=     1.479 Goal=   None    Shift=    0.000
- Skip diagonalization as Alpha Fock matrix is already diagonal.
- RMSDP=0.00D+00 MaxDP=0.00D+00              OVMax= 0.00D+00
+ Gap=     1.348 Goal=   None    Shift=    0.000
+ GapD=    1.348 DampG=2.000 DampE=0.500 DampFc=1.0000 IDamp=-1.
+ RMSDP=5.67D-02 MaxDP=9.12D-02              OVMax= 0.00D+00
 
- SCF Done:  E(RHF) =  -1.10112824196     A.U. after    1 cycles
-            NFock=  1  Conv=0.00D+00     -V/T= 1.8851
- KE= 1.244007102150D+00 PE=-3.928435092730D+00 EE= 7.013377304202D-01
- Leave Link  502 at Mon Jul 18 16:49:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
+ Cycle   2  Pass 1  IDiag  1:
+ E= -1.26859136438691     Delta-E=       -0.009026827510 Rises=F Damp=F
+ DIIS: error= 4.43D-03 at cycle   2 NSaved=   2.
+ NSaved= 2 IEnMin= 2 EnMin= -1.26859136438691     IErMin= 2 ErrMin= 4.43D-03
+ ErrMax= 4.43D-03  0.00D+00 EMaxC= 1.00D-01 BMatC= 7.85D-05 BMatP= 5.42D-03
+ IDIUse=3 WtCom= 9.56D-01 WtEn= 4.43D-02
+ Coeff-Com: -0.137D+00 0.114D+01
+ Coeff-En:   0.000D+00 0.100D+01
+ Coeff:     -0.131D+00 0.113D+01
+ Gap=     1.372 Goal=   None    Shift=    0.000
+ RMSDP=7.41D-03 MaxDP=1.20D-02 DE=-9.03D-03 OVMax= 0.00D+00
+
+ Cycle   3  Pass 1  IDiag  1:
+ E= -1.26872068084910     Delta-E=       -0.000129316462 Rises=F Damp=F
+ DIIS: error= 6.18D-06 at cycle   3 NSaved=   3.
+ NSaved= 3 IEnMin= 3 EnMin= -1.26872068084910     IErMin= 3 ErrMin= 6.18D-06
+ ErrMax= 6.18D-06  0.00D+00 EMaxC= 1.00D-01 BMatC= 1.53D-10 BMatP= 7.85D-05
+ IDIUse=1 WtCom= 1.00D+00 WtEn= 0.00D+00
+ Large coefficients: NSaved=  3 BigCof=    0.00 CofMax=   10.00 Det=-1.36D-20
+ Inversion failed.  Reducing to  2 matrices.
+ Coeff-Com:  0.139D-02 0.999D+00
+ Coeff:      0.139D-02 0.999D+00
+ Gap=     1.372 Goal=   None    Shift=    0.000
+ RMSDP=1.03D-05 MaxDP=1.66D-05 DE=-1.29D-04 OVMax= 0.00D+00
+
+ Cycle   4  Pass 1  IDiag  1:
+ E= -1.26872068110006     Delta-E=       -0.000000000251 Rises=F Damp=F
+ DIIS: error= 4.66D-09 at cycle   4 NSaved=   3.
+ NSaved= 3 IEnMin= 3 EnMin= -1.26872068110006     IErMin= 3 ErrMin= 4.66D-09
+ ErrMax= 4.66D-09  0.00D+00 EMaxC= 1.00D-01 BMatC= 8.70D-17 BMatP= 1.53D-10
+ IDIUse=1 WtCom= 1.00D+00 WtEn= 0.00D+00
+ Large coefficients: NSaved=  3 BigCof=    0.00 CofMax=   10.00 Det= 2.58D-26
+ Inversion failed.  Reducing to  2 matrices.
+ Coeff-Com:  0.754D-03 0.999D+00
+ Coeff:      0.754D-03 0.999D+00
+ Gap=     1.372 Goal=   None    Shift=    0.000
+ RMSDP=7.75D-09 MaxDP=1.25D-08 DE=-2.51D-10 OVMax= 0.00D+00
+
+ SCF Done:  E(RHF) =  -1.26872068110     A.U. after    4 cycles
+            NFock=  4  Conv=0.78D-08     -V/T= 2.0152
+ KE= 1.249729195211D+00 PE=-2.853360980284D+00 EE= 6.924632735128D-01
+ Leave Link  502 at Mon Jul 18 16:33:03 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.2
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l601.exe)
  Copying SCF densities to generalized density rwf, IOpCl= 0 IROHF=0.
 
@@ -220,54 +286,60 @@
 
  **********************************************************************
 
- Alpha  occ. eigenvalues --   -0.64088
- Alpha virt. eigenvalues --    0.83808
+ Alpha  occ. eigenvalues --   -0.10935
+ Alpha virt. eigenvalues --    1.26222
           Condensed to atoms (all electrons):
                1          2
-     1  H    0.570971   0.429029
-     2  H    0.429029   0.570971
+     1  H    1.085205   0.337133
+     2  H    0.337133   0.240530
  Mulliken charges:
                1
-     1  H   -0.000000
-     2  H   -0.000000
- Sum of Mulliken charges =  -0.00000
+     1  H   -0.422338
+     2  H    0.422338
+ Sum of Mulliken charges =   0.00000
  Mulliken charges with hydrogens summed into heavy atoms:
                1
- Electronic spatial extent (au):  <R**2>=              5.1318
- Charge=             -0.0000 electrons
+ Electronic spatial extent (au):  <R**2>=              4.9515
+ Charge=              0.0000 electrons
  Dipole moment (field-independent basis, Debye):
-    X=              0.0000    Y=              0.0000    Z=             -0.0000  Tot=              0.0000
+    X=              0.0000    Y=              0.0000    Z=              1.5011  Tot=              1.5011
  Quadrupole moment (field-independent basis, Debye-Ang):
-   XX=             -1.8237   YY=             -1.8237   ZZ=             -1.5258
+   XX=             -1.8323   YY=             -1.8323   ZZ=             -0.3651
    XY=              0.0000   XZ=              0.0000   YZ=              0.0000
  Traceless Quadrupole moment (field-independent basis, Debye-Ang):
-   XX=             -0.0993   YY=             -0.0993   ZZ=              0.1986
+   XX=             -0.4891   YY=             -0.4891   ZZ=              0.9781
    XY=              0.0000   XZ=              0.0000   YZ=              0.0000
  Octapole moment (field-independent basis, Debye-Ang**2):
-  XXX=              0.0000  YYY=              0.0000  ZZZ=             -1.3732  XYY=              0.0000
-  XXY=              0.0000  XXZ=             -0.5471  XZZ=              0.0000  YZZ=              0.0000
-  YYZ=             -0.5471  XYZ=              0.0000
+  XXX=              0.0000  YYY=              0.0000  ZZZ=              0.0028  XYY=              0.0000
+  XXY=              0.0000  XXZ=             -0.4049  XZZ=              0.0000  YZZ=              0.0000
+  YYZ=             -0.4049  XYZ=              0.0000
  Hexadecapole moment (field-independent basis, Debye-Ang**3):
- XXXX=             -1.4986 YYYY=             -1.4986 ZZZZ=             -2.8874 XXXY=              0.0000
+ XXXX=             -1.5112 YYYY=             -1.5112 ZZZZ=             -1.8686 XXXY=              0.0000
  XXXZ=              0.0000 YYYX=              0.0000 YYYZ=              0.0000 ZZZX=              0.0000
- ZZZY=              0.0000 XXYY=             -0.4995 XXZZ=             -0.7629 YYZZ=             -0.7629
+ ZZZY=              0.0000 XXYY=             -0.5037 XXZZ=             -0.7227 YYZZ=             -0.7227
  XXYZ=              0.0000 YYXZ=              0.0000 ZZXY=              0.0000
- N-N= 8.819620182000D-01 E-N=-3.928435092730D+00  KE= 1.244007102150D+00
+ N-N=-3.575521695405D-01 E-N=-2.853360978660D+00  KE= 1.249729195211D+00
  No NMR shielding tensors so no spin-rotation constants.
- Leave Link  601 at Mon Jul 18 16:49:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.1
+ Leave Link  601 at Mon Jul 18 16:33:03 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.3
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l9999.exe)
- 1\1\GINC-LLANDAWKE\SP\RHF\STO-3G\H2\ADAMKINYUA\18-Jul-2022\0\\#p hf/st
- o-3g nosymm int=noraff output=matrix scf=conven\\h2\\0,1\H,0,0.,0.,0.\
- H,0,0.,0.,0.6\\Version=EM64M-G16RevA.03\HF=-1.1011282\RMSD=0.000e+00\D
- ipole=0.,0.,0.\Quadrupole=-0.0738424,-0.0738424,0.1476848,0.,0.,0.\PG=
- D*H [C*(H1.H1)]\\@
+
+ Test job not archived.
+ 1\1\GINC-LLANDAWKE\SP\RHF\STO-3G\H2\ADAMKINYUA\18-Jul-2022\0\\#p rhf/s
+ to-3g Charge NoSymm output=matrix scf=conven int=noraff\\h2 with charg
+ e\\0,1\H,0,0.,0.,0.\H,0,0.,0.,0.74\\Version=EM64M-G16RevA.03\HF=-1.268
+ 7207\RMSD=7.752e-09\Dipole=0.,0.,0.590596\Quadrupole=-0.3636009,-0.363
+ 6009,0.7272018,0.,0.,0.\PG=D*H [C*(H1.H1)]\\@
 
 
- Discoveries are often made by not following instructions,
- by going off the main road, by trying the untried.
- -- Frank Tyger
+ THERE IS AN OLD, OLD RECIPE IN MAINE FOR STEWING COOT. PLACE THE
+ BIRD IN A KETTLE OF WATER WITH A RED BUILDING BRICK FREE OF MORTAR AND
+ BLEMISHES. PARBOIL THE COOT AND BRICK TOGETHER FOR THREE HOURS.
+ POUR OFF THE WATER, REFILL THE KETTLE, AND AGAIN PARBOIL FOR THREE HOURS.
+ ONCE AGAIN POUR OFF THE WATER, FOR THE LAST TIME ADD FRESH WATER,
+ AND LET THE COOT AND BRICK SIMMER TOGETHER OVERNIGHT. IN THE MORNING,
+ THROW AWAY THE COOT AND EAT THE BRICK.
 
- Writing WrtUnf unformatted file "h2.mat"
+ Writing WrtUnf unformatted file "h2_pt_charge.mat"
  Gaussian matrix elements                                         Version   2 NLab=11 Len12L=8 Len4L=8
  Write SHELL TO ATOM MAP                   from file     0 offset           0 length                   2 to matrix element file.
  Write SHELL TYPES                         from file     0 offset           0 length                   2 to matrix element file.
@@ -302,7 +374,7 @@
  Write ALPHA SCF DENSITY MATRIX            from file 10528 offset           0 length                   3 to matrix element file.
  Write ALPHA FOCK MATRIX                   from file 10536 offset           0 length                   3 to matrix element file.
  Write REGULAR 2E INTEGRALS                to matrix element file, NR=1 ITotal=           6.
- Job cpu time:       0 days  0 hours  0 minutes  0.6 seconds.
- Elapsed time:       0 days  0 hours  0 minutes  0.8 seconds.
+ Job cpu time:       0 days  0 hours  0 minutes  0.7 seconds.
+ Elapsed time:       0 days  0 hours  0 minutes  4.7 seconds.
  File lengths (MBytes):  RWF=      6 Int=      1 D2E=      0 Chk=      1 Scr=      1
- Normal termination of Gaussian 16 at Mon Jul 18 16:49:16 2022.
+ Normal termination of Gaussian 16 at Mon Jul 18 16:33:04 2022.

@@ -1,0 +1,148 @@
+ Label Gaussian matrix elements                                         IVers= 2 NLab=11 Version=EM64M-G16RevA.03
+ Title h2 with charge                                                  
+ NAtoms=     2 NBasis=     2 NBsUse=     2 ICharg=     0 Multip=     1 NE=     2 Len12L=8 Len4L=8 IOpCl=     0 ICGU=111
+    IAn=   1   1
+ IAtTyp=           0           0
+ AtmChg=    1.000000    1.000000
+      C=    0.000000    0.000000    0.000000
+      C=    0.000000    0.000000    1.398397
+ IBfAtm=       1       2
+ IBfTyp=       1       1
+ AtmWgt=    1.007825    1.007825
+ NFC=     0 NFV=     0 ITran=     0
+ NShlAO=       2 NPrmAO=       6 NShlDB=       0 NPrmDB=       0 NBTot=       2
+ SHELL TO ATOM MAP                   NI= 1 NR= 0 NTot=       2 LenBuf=    4000 N=     2     0     0     0     0 AS= 0
+        1       2
+ SHELL TYPES                         NI= 1 NR= 0 NTot=       2 LenBuf=    4000 N=     2     0     0     0     0 AS= 0
+        0       0
+ NUMBER OF PRIMITIVES PER SHELL      NI= 1 NR= 0 NTot=       2 LenBuf=    4000 N=     2     0     0     0     0 AS= 0
+        3       3
+ PRIMITIVE EXPONENTS                 NI= 0 NR= 1 NTot=       6 LenBuf=    4000 N=     6     0     0     0     0 AS= 0
+     3.425251    0.623914    0.168855    3.425251    0.623914    0.168855
+ CONTRACTION COEFFICIENTS            NI= 0 NR= 1 NTot=       6 LenBuf=    4000 N=     6     0     0     0     0 AS= 0
+     0.154329    0.535328    0.444635    0.154329    0.535328    0.444635
+ P(S=P) CONTRACTION COEFFICIENTS     NI= 0 NR= 1 NTot=       6 LenBuf=    4000 N=     6     0     0     0     0 AS= 0
+     0.000000    0.000000    0.000000    0.000000    0.000000    0.000000
+ COORDINATES OF EACH SHELL           NI= 0 NR= 1 NTot=       6 LenBuf=    4000 N=     6     0     0     0     0 AS= 0
+     0.000000    0.000000    0.000000    0.000000    0.000000    1.398397
+ BONDS PER ATOM                      NI= 1 NR= 0 NTot=       2 LenBuf=    4000 N=     2     0     0     0     0 AS= 0
+        1       1
+ BONDED ATOMS                        NI= 1 NR= 0 NTot=       2 LenBuf=    4000 N=     2     0     0     0     0 AS= 0
+        2       1
+ BOND TYPES                          NI= 0 NR= 1 NTot=       2 LenBuf=    4000 N=     2     0     0     0     0 AS= 0
+     1.000000    1.000000
+ GAUSSIAN SCALARS                    NI= 1 NR= 1 NTot=       9 LenBuf=    2000 N=  1000     1     1     1     1 AS= 0
+           2.01519648          0.00000000          0.00000000          0.00000000          0.69246327
+           0.00000000          0.00000000          0.00000000          0.00000000          0.00000000
+           0.00000000          0.00000000          0.00000000          0.00000000          0.00000000
+           0.00000000          0.00000000          0.00000000          0.00000000          0.00000000
+           0.00000000          0.00000000          0.00000001          0.00000000          0.00000000
+           0.00000000          0.00000000          0.00000000          0.00000000          0.00000000
+           0.00000000         -1.26872068          0.00000000          0.00000000          0.00000000
+           0.00000000          0.00000000          0.00000000          0.00000000          0.00000000
+          -0.35755217          0.00000000         -1.26872068          0.00000000          0.00000000
+           0.00000000          0.00000000          0.00000000          0.00000000          0.00000000
+           0.00000000          0.00000000          0.00000000          0.00000000          0.00000000
+           0.00000000          0.00000000          0.00000000          0.00000000         -1.25956454
+           1.00000000          0.00000000          4.00000000
+ INTEGER ISO                         NI= 1 NR= 0 NTot=       2 LenBuf=    4000 N=     2     0     0     0     0 AS= 0
+        1       1
+ INTEGER SPIN                        NI= 1 NR= 0 NTot=       2 LenBuf=    4000 N=     2     0     0     0     0 AS= 0
+        1       1
+ REAL ZEFFECTIVE                     NI= 0 NR= 1 NTot=       2 LenBuf=    4000 N=     2     0     0     0     0 AS= 0
+    -1.000000   -1.000000
+ REAL GFACTOR                        NI= 0 NR= 1 NTot=       2 LenBuf=    4000 N=     2     0     0     0     0 AS= 0
+     2.792846    2.792846
+ REAL ZNUCLEAR                       NI= 0 NR= 1 NTot=       2 LenBuf=    4000 N=     2     0     0     0     0 AS= 0
+     1.000000    1.000000
+ NUCLEAR GRADIENT                    NI= 0 NR= 1 NTot=       6 LenBuf=    4000 N=     3     2     0     0     0 AS= 0
+                   1                   2
+      1           0.00000000          0.00000000
+      2           0.00000000          0.00000000
+      3           0.00000000          0.00000000
+ ELECTRIC DIPOLE MOMENT              NI= 0 NR= 1 NTot=       3 LenBuf=    4000 N=     3     0     0     0     0 AS= 0
+     0.000000    0.000000    0.590596
+ OVERLAP                             NI= 0 NR= 1 NTot=       3 LenBuf=    4000 N=    -2     2     0     0     0 AS= 0
+             1             2
+   1  1.000000D+00
+   2  6.598731D-01  1.000000D+00
+ CORE HAMILTONIAN ALPHA              NI= 0 NR= 1 NTot=       3 LenBuf=    4000 N=    -2     2     0     0     0 AS= 0
+             1             2
+   1 -7.649845D-01
+   2 -6.471259D-01 -4.665819D-01
+ CORE HAMILTONIAN BETA               NI= 0 NR= 1 NTot=       3 LenBuf=    4000 N=    -2     2     0     0     0 AS= 0
+             1             2
+   1 -7.649845D-01
+   2 -6.471259D-01 -4.665819D-01
+ KINETIC ENERGY                      NI= 0 NR= 1 NTot=       3 LenBuf=    4000 N=    -2     2     0     0     0 AS= 0
+             1             2
+   1  7.600319D-01
+   2  2.369603D-01  7.600319D-01
+ ORTHOGONAL BASIS                    NI= 0 NR= 1 NTot=       4 LenBuf=    4000 N=     2     2     0     0     0 AS= 0
+                   1                   2
+      1           0.54884228          1.21245192
+      2           0.54884228         -1.21245192
+ DIPOLE INTEGRALS                    NI= 0 NR= 1 NTot=       9 LenBuf=    4000 N=    -2     2     3     0     0 AS= 0
+ DIPOLE INTEGRALS, matrix     1:
+             1             2
+   1  0.000000D+00
+   2  0.000000D+00  0.000000D+00
+ DIPOLE INTEGRALS, matrix     2:
+             1             2
+   1  0.000000D+00
+   2  0.000000D+00  0.000000D+00
+ DIPOLE INTEGRALS, matrix     3:
+             1             2
+   1  0.000000D+00
+   2  4.613824D-01  1.398397D+00
+ DIP VEL INTEGRALS                   NI= 0 NR= 1 NTot=       9 LenBuf=    4000 N=    -2     2     3     0     0 AS= 0
+ DIP VEL INTEGRALS, matrix     1:
+             1             2
+   1  0.000000D+00
+   2  0.000000D+00  0.000000D+00
+ DIP VEL INTEGRALS, matrix     2:
+             1             2
+   1  0.000000D+00
+   2  0.000000D+00  0.000000D+00
+ DIP VEL INTEGRALS, matrix     3:
+             1             2
+   1  0.000000D+00
+   2 -3.462621D-01  0.000000D+00
+ R X DEL INTEGRALS                   NI= 0 NR= 1 NTot=       9 LenBuf=    4000 N=    -2     2     3     0     0 AS= 0
+ R X DEL INTEGRALS, matrix     1:
+             1             2
+   1  0.000000D+00
+   2  0.000000D+00  0.000000D+00
+ R X DEL INTEGRALS, matrix     2:
+             1             2
+   1  0.000000D+00
+   2  0.000000D+00  0.000000D+00
+ R X DEL INTEGRALS, matrix     3:
+             1             2
+   1  0.000000D+00
+   2  0.000000D+00  0.000000D+00
+ ALPHA ORBITAL ENERGIES              NI= 0 NR= 1 NTot=       2 LenBuf=    4000 N=     2     0     0     0     0 AS= 0
+    -0.109353    1.262216
+ ALPHA MO COEFFICIENTS               NI= 0 NR= 1 NTot=       4 LenBuf=    4000 N=     2     2     0     0     0 AS= 0
+                   1                   2
+      1           0.73661563         -1.10845158
+      2           0.34679222          1.28491348
+ ALPHA DENSITY MATRIX                NI= 0 NR= 1 NTot=       3 LenBuf=    4000 N=    -2     2     0     0     0 AS= 0
+             1             2
+   1  5.426026D-01
+   2  2.554526D-01  1.202648D-01
+ ALPHA SCF DENSITY MATRIX            NI= 0 NR= 1 NTot=       3 LenBuf=    4000 N=    -2     2     0     0     0 AS= 0
+             1             2
+   1  5.426026D-01
+   2  2.554526D-01  1.202648D-01
+ ALPHA FOCK MATRIX                   NI= 0 NR= 1 NTot=       3 LenBuf=    4000 N=    -2     2     0     0     0 AS= 0
+             1             2
+   1 -1.622638D-02
+   2 -2.699668D-01  3.108079D-01
+ Label REGULAR 2E INTEGRALS                                             NI= 4 NR= 1 NTot=       6 LenBuf=     800
+ I=  2 J=  2 K=  2 L=  2 Int=  7.746059441937D-01
+ I=  2 J=  2 K=  2 L=  1 Int=  4.445911245935D-01
+ I=  2 J=  2 K=  1 L=  1 Int=  5.699948831046D-01
+ I=  2 J=  1 K=  2 L=  1 Int=  2.975905518605D-01
+ I=  2 J=  1 K=  1 L=  1 Int=  4.445911245935D-01
+ I=  1 J=  1 K=  1 L=  1 Int=  7.746059441937D-01
