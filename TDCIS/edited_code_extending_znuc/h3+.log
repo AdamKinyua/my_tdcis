@@ -2,8 +2,8 @@
  Input=h3+.com
  Output=h3+.log
  Initial command:
- /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe "/tmp/Gau-82235.inp" -scrdir="/tmp/"
- Entering Link 1 = /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe PID=     82238.
+ /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe "/tmp/Gau-71195.inp" -scrdir="/tmp/"
+ Entering Link 1 = /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe PID=     71196.
   
  Copyright (c) 1988,1990,1992,1993,1995,1998,2003,2009,2016,
             Gaussian, Inc.  All Rights Reserved.
@@ -77,7 +77,7 @@
  
  ******************************************
  Gaussian 16:  EM64M-G16RevA.03 25-Dec-2016
-                29-Jul-2022 
+                28-Jul-2022 
  ******************************************
  %chk=h3+.chk
  -----------------------------------------------------
@@ -90,7 +90,7 @@
  5/5=1,29=1/2;
  6/7=2,8=2,9=2,10=2,28=1/1;
  99/5=1,6=100000,9=1/99;
- Leave Link    1 at Fri Jul 29 09:27:34 2022, MaxMem=           0 cpu:               0.0 elap:               0.4
+ Leave Link    1 at Thu Jul 28 12:31:15 2022, MaxMem=           0 cpu:               0.0 elap:               0.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l101.exe)
  ----------------------------------------------
  h3+ sto-3g for h1&h2; h3 no basis sets applied
@@ -117,7 +117,7 @@
  NQMom=    0.0000000   0.0000000   0.0000000
  NMagM=    2.7928460   2.7928460   2.7928460
  AtZNuc=   1.0000000   1.0000000  -1.0000000
- Leave Link  101 at Fri Jul 29 09:27:34 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.2
+ Leave Link  101 at Thu Jul 28 12:31:15 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.2
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l202.exe)
                           Input orientation:                          
  ---------------------------------------------------------------------
@@ -139,7 +139,7 @@
  Deg. of freedom     1
  Full point group                 D*H     NOp   8
  Rotational constants (GHZ):           0.0000000         457.8662386         457.8662386
- Leave Link  202 at Fri Jul 29 09:27:34 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.1
+ Leave Link  202 at Thu Jul 28 12:31:15 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l301.exe)
  General basis read from cards:  (5D, 7F)
  Centers:       1      2
@@ -157,19 +157,19 @@
  Integral buffers will be    131072 words long.
  Regular integral format.
  Two-electron integral symmetry is turned off.
- Leave Link  301 at Fri Jul 29 09:27:35 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.3
+ Leave Link  301 at Thu Jul 28 12:31:15 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l302.exe)
  NPDir=0 NMtPBC=     1 NCelOv=     1 NCel=       1 NClECP=     1 NCelD=      1
          NCelK=      1 NCelE2=     1 NClLst=     1 CellRange=     0.0.
  One-electron integrals computed using PRISM.
  NBasis=     2 RedAO= T EigKep=  3.40D-01  NBF=     2
  NBsUse=     2 1.00D-06 EigRej= -1.00D+00 NBFU=     2
- Leave Link  302 at Fri Jul 29 09:27:35 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.3
+ Leave Link  302 at Thu Jul 28 12:31:15 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l303.exe)
  DipDrv:  MaxL=1.
- Leave Link  303 at Fri Jul 29 09:27:36 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.2
+ Leave Link  303 at Thu Jul 28 12:31:15 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l308.exe)
- Leave Link  308 at Fri Jul 29 09:27:36 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.1
+ Leave Link  308 at Thu Jul 28 12:31:15 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l320.exe)
  Enter DskPsm, NBasis=   2 NBas6D=   2 NShell=   2 IDoSP=4.
  Out2e will use a cutoff of  1.00D-10
@@ -179,7 +179,7 @@
          NMat0=    0 NMatS0=      0 NMatT0=    0 NMatD0=    0 NMtDS0=    0 NMtDT0=    0
  Symmetry not used in FoFCou.
             6 integrals produced for a total of            6.
- Leave Link  320 at Fri Jul 29 09:27:36 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
+ Leave Link  320 at Thu Jul 28 12:31:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l401.exe)
  ExpMin= 1.69D-01 ExpMax= 3.43D+00 ExpMxC= 3.43D+00 IAcc=3 IRadAn=         5 AccDes= 0.00D+00
  Harris functional with IExCor=  205 and IRadAn=       5 diagonalized for initial guess.
@@ -192,7 +192,7 @@
  Symmetry not used in FoFCou.
  Harris En= -1.66910470692550    
  JPrj=0 DoOrth=F DoCkMO=F.
- Leave Link  401 at Fri Jul 29 09:27:37 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.5
+ Leave Link  401 at Thu Jul 28 12:31:16 2022, MaxMem=   104857600 cpu:               0.2 elap:               0.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l502.exe)
  DoDFTU:  F
  DoIMOM:                        0
@@ -271,7 +271,7 @@
  SCF Done:  E(RHF) =  -1.26872068110     A.U. after    5 cycles
             NFock=  5  Conv=0.40D-12     -V/T= 2.0152
  KE= 1.249729195211D+00 PE=-2.853360978660D+00 EE= 6.924632718892D-01
- Leave Link  502 at Fri Jul 29 09:27:37 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.2
+ Leave Link  502 at Thu Jul 28 12:31:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l601.exe)
  Copying SCF densities to generalized density rwf, IOpCl= 0 IROHF=0.
 
@@ -317,9 +317,9 @@
  XXYZ=              0.0000 YYXZ=              0.0000 ZZXY=              0.0000
  N-N=-3.575521695405D-01 E-N=-2.853360978660D+00  KE= 1.249729195211D+00
  No NMR shielding tensors so no spin-rotation constants.
- Leave Link  601 at Fri Jul 29 09:27:37 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.2
+ Leave Link  601 at Thu Jul 28 12:31:16 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l9999.exe)
- 1\1\GINC-LLANDAWKE\SP\RHF\Gen\H3(1+)\ADAMKINYUA\29-Jul-2022\0\\#p rhf/
+ 1\1\GINC-LLANDAWKE\SP\RHF\Gen\H3(1+)\ADAMKINYUA\28-Jul-2022\0\\#p rhf/
  gen nosymm int=noraff output=matrix scf=conven\\h3+ sto-3g for h1&h2; 
  h3 no basis sets applied\\1,1\H,0,0.,0.,0.\H,0,0.,0.,0.74\H,0,0.,0.,1.
  48\\Version=EM64M-G16RevA.03\HF=-1.2687207\RMSD=3.981e-13\Dipole=0.,0.
@@ -327,8 +327,16 @@
  [O(H1),C*(H1.H1)]\\@
 
 
- ON A TOMBSTONE, "HERE LIES LESTER MOORE,
- FOUR SLUGS FROM A 44, NO LES, NO MORE".
+ AND HERE I AM, FOR ALL MY LORE,
+ THE WRETCHED FOOL I WAS BEFORE.
+ CALLED MASTER OF ARTS, AND DOCTOR TO BOOT,
+ FOR TEN YEARS ALMOST I CONFUTE
+ AND UP AND DOWN, WHEREVER IT GOES
+ I DRAG MY STUDENTS BY THE NOSE --
+ AND SEE THAT FOR ALL OUR SCIENCE AND ART
+ WE CAN KNOW NOTHING.  IT BURNS MY HEART.
+
+                                       -- FAUST
 
  Writing WrtUnf unformatted file "h3+.mat"
  Gaussian matrix elements                                         Version   2 NLab=11 Len12L=8 Len4L=8
@@ -366,6 +374,6 @@
  Write ALPHA FOCK MATRIX                   from file 10536 offset           0 length                   3 to matrix element file.
  Write REGULAR 2E INTEGRALS                to matrix element file, NR=1 ITotal=           6.
  Job cpu time:       0 days  0 hours  0 minutes  0.7 seconds.
- Elapsed time:       0 days  0 hours  0 minutes  3.8 seconds.
+ Elapsed time:       0 days  0 hours  0 minutes  0.9 seconds.
  File lengths (MBytes):  RWF=      6 Int=      1 D2E=      0 Chk=      1 Scr=      1
- Normal termination of Gaussian 16 at Fri Jul 29 09:27:40 2022.
+ Normal termination of Gaussian 16 at Thu Jul 28 12:31:16 2022.

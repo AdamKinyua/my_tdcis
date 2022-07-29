@@ -540,7 +540,7 @@
 !   Turn it off by commenting lines 543 - 589 & line 898
 !
 !
-do l=0,6
+do l=0,1
         if (l.eq.0) then
             print*,"######################################################"
             print*,"## Initial Iteration using Input nuclear parameters ##"
@@ -559,7 +559,7 @@ do l=0,6
             i = 3                                                             ! i is the atom number
             z = moleculeInfo%Cartesian_Coordinates%at(3,i)                    ! var z stores the coordinates to stretch 
             print*,"Z_init: ", z                                                   ! prints initial z coordinates...
-            z = z + 0.05                                                      ! stretches z by +0.1 Angstrom
+            z = z + 0.00                                                      ! stretches z by +0.1 Angstrom
             print*,"Z_finl: ", z                                                   ! prints new z
             call moleculeInfo%Cartesian_Coordinates%put(z,3,i)                !inserts stretched z to form new coordinates 
             call moleculeInfo%Cartesian_Coordinates%print(iOut,'Coordinates') !prints out the altered coordinate

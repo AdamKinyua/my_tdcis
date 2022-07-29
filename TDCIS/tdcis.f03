@@ -541,7 +541,7 @@
 !   Turn it off by commenting lines 543 - 589 & line 898
 !
 !
-do l=0,3
+do l=0,1
         if (l.eq.0) then
             print*,"######################################################"
             print*,"## Initial Iteration using Input nuclear parameters ##"
@@ -564,7 +564,13 @@ do l=0,3
             print*,"Z_finl: ", z                                                   ! prints new z
             call moleculeInfo%Cartesian_Coordinates%put(z,3,i)                !inserts stretched z to form new coordinates 
             call moleculeInfo%Cartesian_Coordinates%print(iOut,'Coordinates') !prints out the altered coordinate
-            
+           !
+           !
+           ! Trying to modify charges// Trying to modify charges
+      !      call fileinfo%getVal('charge')%print(iOut, '#####CHARGES CHARGES CHARGES####')
+           !
+           !
+           !
 
 ! *************Projecting Geometry********************
 
@@ -575,7 +581,7 @@ do l=0,3
                 doProcMem,ncpu,mem,'chkbas',.true.,(i.eq.1.and..not.doDirect),atomlist,&
                 moleculeInfo%Cartesian_Coordinates,&
                 moleculeInfo%Nuclear_Charges,&
-                fileinfo%getVal('charge'),&
+                fileinfo%getVal('charge')-1,& 
                 fileinfo%getVal('multiplicity'))
             endDo
              
@@ -767,22 +773,23 @@ do l=0,3
            
            
             !******************************************************************************************************************
-            CI_Eigenvectors_old = wavefunction%pscf_amplitudes                                             ! added
-!            call CI_Eigenvectors_old%print(iOut,'CI Eigenvectors Old',Blank_At_Bottom=.true.) ! delete this
+       !     CI_Eigenvectors_old = wavefunction%pscf_amplitudes                                             ! added
+!                call CI_Eigenvectors_old%print(iOut,'CI Eigenvectors Old',Blank_At_Bottom=.true.) ! delete this
             !*******
 
+            
             call CI_Hamiltonian%diag(wavefunction%pscf_energies,wavefunction%pscf_amplitudes)  ! Original
-            !
+            
 
             !********
-            call wavefunction%pscf_amplitudes%print(iOut,'New eigenvectors',Blank_At_Bottom=.true.) ! delete this
-            do i = 1, size(wavefunction%pscf_amplitudes, 1)
-              call mqc_print(dot_product(dagger(CI_Eigenvectors_old%vat([0],[i])),&
-                wavefunction%pscf_amplitudes%vat([0],[i])),6,'Dot product '//trim(num2char(i)))
+       !     call wavefunction%pscf_amplitudes%print(iOut,'New eigenvectors',Blank_At_Bottom=.true.) ! delete this
+       !     do i = 1, size(wavefunction%pscf_amplitudes, 1)
+       !       call mqc_print(dot_product(dagger(CI_Eigenvectors_old%vat([0],[i])),&
+       !         wavefunction%pscf_amplitudes%vat([0],[i])),6,'Dot product '//trim(num2char(i)))
              ! call wavefunction%pscf_amplitudes%put(dot_product(dagger(CI_Eigenvectors_old%vat([0],[i]),&
              !   CI_Eigenvectors%vat([0],[i]),[i]))
-            endDo
-            call wavefunction%pscf_amplitudes%print(iOut,'CI Eigenvectors New',Blank_At_Bottom=.true.)  ! delete this
+       !     endDo
+       !     call wavefunction%pscf_amplitudes%print(iOut,'CI Eigenvectors New',Blank_At_Bottom=.true.)  ! delete this
             
             !*******************************************************************************************************************
 
@@ -2251,10 +2258,15 @@ do l=0,3
             write(unitnumber,'(I3,1x,I2)') charge, multiplicity
             if(size(atomList).ne.size(cartesians,2)) call mqc_error_i('atom name and coordinate lists are not the&
             &same size in write_GauIn_file',6,'size(atomList)',size(atomList),'size(cartesians,2)',size(cartesians,2))
-            do i = 1, size(atomList)
+            
+            !*******added -1; remove it to restore the code
+            do i = 1, size(atomList)-1
+            !*******
+            
+            ! Original lines as seen in edited code in edited folder....
 
-             write(unitnumber,'(1x,A,A,G0,A,1x,F15.8,1x,F15.8,1x,F15.8)') trim(atomList(i)),&
-             '(znuc=',MQC_Scalar_Get_Intrinsic_Real(nuclearCharges%at(i)),')',&
+            write(unitnumber,'(1x,A,A,G0,A,1x,F15.8,1x,F15.8,1x,F15.8)') trim(atomList(i)),&
+              '(znuc=',MQC_Scalar_Get_Intrinsic_Real(nuclearCharges%at(i)),')',& 
              MQC_Scalar_Get_Intrinsic_Real(cartesians%at(1,i)),&
              MQC_Scalar_Get_Intrinsic_Real(cartesians%at(2,i)),MQC_Scalar_Get_Intrinsic_Real(cartesians%at(3,i))
 

@@ -2,8 +2,8 @@
  Input=test.com
  Output=test.log
  Initial command:
- /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe "/tmp/Gau-82241.inp" -scrdir="/tmp/"
- Entering Link 1 = /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe PID=     82242.
+ /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe "/tmp/Gau-71198.inp" -scrdir="/tmp/"
+ Entering Link 1 = /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l1.exe PID=     71199.
   
  Copyright (c) 1988,1990,1992,1993,1995,1998,2003,2009,2016,
             Gaussian, Inc.  All Rights Reserved.
@@ -77,7 +77,7 @@
  
  ******************************************
  Gaussian 16:  EM64M-G16RevA.03 25-Dec-2016
-                29-Jul-2022 
+                28-Jul-2022 
  ******************************************
  %oldmatrix=h3+.mat
  %chk=h3+.chk
@@ -134,33 +134,34 @@
  4/5=1,6=220,9=200,129=1/1;
  6/7=2,8=2,9=2,10=2,28=1/1;
  99/5=1,6=100000,9=1/99;
- Leave Link    1 at Fri Jul 29 09:27:40 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
+ Leave Link    1 at Thu Jul 28 12:31:16 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l101.exe)
  ------------------
  Tile Card Required
  ------------------
  Symbolic Z-matrix:
- Charge =  0 Multiplicity = 1
+ Charge =  1 Multiplicity = 1
  H(znuc=1.0000000000000000)  0.        0.        0. 
  H(znuc=1.0000000000000000)  0.        0.        1.3984 
+ H(znuc=-1.0000000000000000)  0.        0.        2.79679 
  
- ITRead=  0  0
- MicOpt= -1 -1
- NAtoms=      2 NQM=        2 NQMF=       0 NMMI=      0 NMMIF=      0
+ ITRead=  0  0  0
+ MicOpt= -1 -1 -1
+ NAtoms=      3 NQM=        3 NQMF=       0 NMMI=      0 NMMIF=      0
                 NMic=       0 NMicF=      0.
                     Isotopes and Nuclear Properties:
  (Nuclear quadrupole moments (NQMom) in fm**2, nuclear magnetic moments (NMagM)
   in nuclear magnetons)
 
-  Atom         1           2
- IAtWgt=           1           1
- AtmWgt=   1.0078250   1.0078250
- NucSpn=           1           1
- AtZEff=  -0.0000000  -0.0000000
- NQMom=    0.0000000   0.0000000
- NMagM=    2.7928460   2.7928460
- AtZNuc=   1.0000000   1.0000000
- Leave Link  101 at Fri Jul 29 09:27:40 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
+  Atom         1           2           3
+ IAtWgt=           1           1           1
+ AtmWgt=   1.0078250   1.0078250   1.0078250
+ NucSpn=           1           1           1
+ AtZEff=  -0.0000000  -0.0000000  -0.0000000
+ NQMom=    0.0000000   0.0000000   0.0000000
+ NMagM=    2.7928460   2.7928460   2.7928460
+ AtZNuc=   1.0000000   1.0000000  -1.0000000
+ Leave Link  101 at Thu Jul 28 12:31:16 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l202.exe)
                           Input orientation:                          
  ---------------------------------------------------------------------
@@ -169,29 +170,36 @@
  ---------------------------------------------------------------------
       1          1           0        0.000000    0.000000    0.000000
       2          1           0        0.000000    0.000000    1.398397
+      3          1           0        0.000000    0.000000    2.796795
  ---------------------------------------------------------------------
+                    Distance matrix (angstroms):
+                    1          2          3
+     1  H    0.000000
+     2  H    1.398397   0.000000
+     3  H    2.796795   1.398397   0.000000
  Symmetry turned off by external request.
- Stoichiometry    H2
- Framework group  D*H[C*(H.H)]
+ Stoichiometry    H3(1+)
+ Framework group  D*H[O(H),C*(H.H)]
  Deg. of freedom     1
  Full point group                 D*H     NOp   8
- Rotational constants (GHZ):           0.0000000         512.8624232         512.8624232
- Leave Link  202 at Fri Jul 29 09:27:40 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
+ Rotational constants (GHZ):           0.0000000         128.2156058         128.2156058
+ Leave Link  202 at Thu Jul 28 12:31:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l301.exe)
  Basis read from chk: "h3+.chk" (5D, 7F)
  No pseudopotential information found on chk file.
+ Warning:  center   3 has no basis functions!
      2 basis functions,     6 primitive gaussians,     2 cartesian basis functions
      1 alpha electrons        1 beta electrons
-       nuclear repulsion energy         0.3784169203 Hartrees.
+       nuclear repulsion energy        -0.1892084601 Hartrees.
  IExCor=    0 DFT=F Ex=HF Corr=None ExCW=0 ScaHFX=  1.000000
  ScaDFX=  1.000000  1.000000  1.000000  1.000000 ScalE2=  1.000000  1.000000
  IRadAn=      5 IRanWt=     -1 IRanGd=            0 ICorTp=0 IEmpDi=  4
- NAtoms=    2 NActive=    2 NUniq=    2 SFac= 1.00D+00 NAtFMM=   60 NAOKFM=F Big=F
+ NAtoms=    3 NActive=    3 NUniq=    3 SFac= 1.00D+00 NAtFMM=   60 NAOKFM=F Big=F
  Integral buffers will be    131072 words long.
  Regular integral format.
  Two-electron integral symmetry is turned off.
  No density basis found on file 20724.
- Leave Link  301 at Fri Jul 29 09:27:40 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.1
+ Leave Link  301 at Thu Jul 28 12:31:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l302.exe)
  NPDir=0 NMtPBC=     1 NCelOv=     1 NCel=       1 NClECP=     1 NCelD=      1
          NCelK=      1 NCelE2=     1 NClLst=     1 CellRange=     0.0.
@@ -200,12 +208,12 @@
  Error in orthogonal basis= 1.07D+00 with     2 functions, increasing threshold to 2.00D-06.
  NBasis=     2 RedAO= T EigKep=  7.04D-01  NBF=     2
  NBsUse=     2 2.00D-06 EigRej= -1.00D+00 NBFU=     2
- Leave Link  302 at Fri Jul 29 09:27:41 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
+ Leave Link  302 at Thu Jul 28 12:31:16 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l303.exe)
  DipDrv:  MaxL=1.
- Leave Link  303 at Fri Jul 29 09:27:41 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
+ Leave Link  303 at Thu Jul 28 12:31:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l308.exe)
- Leave Link  308 at Fri Jul 29 09:27:41 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
+ Leave Link  308 at Thu Jul 28 12:31:16 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l320.exe)
  Enter DskPsm, NBasis=   2 NBas6D=   2 NShell=   2 IDoSP=4.
  Out2e will use a cutoff of  1.00D-10
@@ -215,15 +223,16 @@
          NMat0=    0 NMatS0=      0 NMatT0=    0 NMatD0=    0 NMtDS0=    0 NMtDT0=    0
  Symmetry not used in FoFCou.
             6 integrals produced for a total of            6.
- Leave Link  320 at Fri Jul 29 09:27:41 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
+ Leave Link  320 at Thu Jul 28 12:31:17 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.0
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/local/l401.exe)
  Initial guess from the checkpoint file:  "h3+.chk"
  CmpBas:  ShellC arrays do not match.
- Skipping rotation of guess because NAtoms(RWF)=    2 differs from NAtoms(Chk)=    3.
+ B after Tr=     0.000000    0.000000    0.622095
+         Rot=    1.000000    0.000000    0.000000    0.000000 Ang=   0.00 deg.
  Guess basis will be translated and rotated to current coordinates.
  Recover SCF energy =  -1.26872068110     from chk file.
  JPrj=2 DoOrth=F DoCkMO=F.
- Leave Link  401 at Fri Jul 29 09:27:41 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
+ Leave Link  401 at Thu Jul 28 12:31:17 2022, MaxMem=   104857600 cpu:               0.1 elap:               0.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l601.exe)
  Copying SCF densities to generalized density rwf, IOpCl= 0 IROHF=0.
 
@@ -236,48 +245,51 @@
  Alpha  occ. eigenvalues --   -0.10935
  Alpha virt. eigenvalues --    1.26222
           Condensed to atoms (all electrons):
-               1          2
-     1  H    1.332720   0.185945
-     2  H    0.185945   0.295390
+               1          2          3
+     1  H    1.332720   0.185945   0.000000
+     2  H    0.185945   0.295390   0.000000
+     3  H    0.000000   0.000000   0.000000
  Mulliken charges:
                1
      1  H   -0.518665
      2  H    0.518665
- Sum of Mulliken charges =   0.00000
+     3  H   -1.000000
+ Sum of Mulliken charges =  -1.00000
  Mulliken charges with hydrogens summed into heavy atoms:
                1
  Electronic spatial extent (au):  <R**2>=              7.0087
- Charge=              0.0000 electrons
+ Charge=             -1.0000 electrons
  Dipole moment (field-independent basis, Debye):
-    X=              0.0000    Y=              0.0000    Z=              3.4838  Tot=              3.4838
+    X=              0.0000    Y=              0.0000    Z=             -9.9498  Tot=              9.9498
  Quadrupole moment (field-independent basis, Debye-Ang):
-   XX=             -1.8702   YY=             -1.8702   ZZ=              3.7061
+   XX=             -1.8702   YY=             -1.8702   ZZ=            -33.8648
    XY=              0.0000   XZ=              0.0000   YZ=              0.0000
  Traceless Quadrupole moment (field-independent basis, Debye-Ang):
-   XX=             -1.8588   YY=             -1.8588   ZZ=              3.7175
+   XX=             10.6649   YY=             10.6649   ZZ=            -21.3298
    XY=              0.0000   XZ=              0.0000   YZ=              0.0000
  Octapole moment (field-independent basis, Debye-Ang**2):
-  XXX=              0.0000  YYY=              0.0000  ZZZ=              6.2686  XYY=              0.0000
+  XXX=              0.0000  YYY=              0.0000  ZZZ=            -98.8097  XYY=              0.0000
   XXY=              0.0000  XXZ=             -0.6740  XZZ=              0.0000  YZZ=              0.0000
   YYZ=             -0.6740  XYZ=              0.0000
  Hexadecapole moment (field-independent basis, Debye-Ang**3):
- XXXX=             -1.5717 YYYY=             -1.5717 ZZZZ=              5.9216 XXXY=              0.0000
+ XXXX=             -1.5717 YYYY=             -1.5717 ZZZZ=           -287.9607 XXXY=              0.0000
  XXXZ=              0.0000 YYYX=              0.0000 YYYZ=              0.0000 ZZZX=              0.0000
  ZZZY=              0.0000 XXYY=             -0.5239 XXZZ=             -1.2726 YYZZ=             -1.2726
  XXYZ=              0.0000 YYXZ=              0.0000 ZZXY=              0.0000
- N-N= 3.784169202611D-01 E-N=-3.110504420168D+00  KE= 1.262432230747D+00
+ N-N=-1.892084601306D-01 E-N=-2.651366027700D+00  KE= 1.262432230747D+00
  No NMR shielding tensors so no spin-rotation constants.
- Leave Link  601 at Fri Jul 29 09:27:41 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.1
+ Leave Link  601 at Thu Jul 28 12:31:17 2022, MaxMem=   104857600 cpu:               0.0 elap:               0.1
  (Enter /Volumes/CaseSensitive/gaussian/g16-current/g16/l9999.exe)
- 1\1\GINC-LLANDAWKE\SP\RHF\Gen\H2\ADAMKINYUA\29-Jul-2022\0\\#P hf guess
- =read scf=(conven,skip) int=noraf nosymm output=matrix # chkbas\\Tile 
- Card Required\\0,1\H,0,0.,0.,0.\H,0,0.,0.,1.39839733\\Version=EM64M-G1
- 6RevA.03\HF=-1.2687207\RMSD=3.981e-13\Dipole=0.,0.,1.3706179\Quadrupol
- e=-1.3819384,-1.3819384,2.7638767,0.,0.,0.\PG=D*H [C*(H1.H1)]\\@
+ 1\1\GINC-LLANDAWKE\SP\RHF\Gen\H3(1+)\ADAMKINYUA\28-Jul-2022\0\\#P hf g
+ uess=read scf=(conven,skip) int=noraf nosymm output=matrix # chkbas\\T
+ ile Card Required\\1,1\H,0,0.,0.,0.\H,0,0.,0.,1.39839733\H,0,0.,0.,2.7
+ 9679466\\Version=EM64M-G16RevA.03\HF=-1.2687207\RMSD=3.981e-13\Dipole=
+ 0.,0.,-1.2719701\Quadrupole=7.9290898,7.9290898,-15.8581797,0.,0.,0.\P
+ G=D*H [O(H1),C*(H1.H1)]\\@
 
 
- SOME PEOPLE TRY TO PULL THE WOOL OVER YOUR EYES
- USING THE WRONG YARN.
+ There was a great rattling of the words for the fewness of ideas.
+                   -- Charles Baxter in Gryphon
 
  Writing WrtUnf unformatted file "h3+.mat"
  Gaussian matrix elements                                         Version   2 NLab=11 Len12L=8 Len4L=8
@@ -289,12 +301,12 @@
  Write P(S=P) CONTRACTION COEFFICIENTS     from file     0 offset           0 length                   6 to matrix element file.
  Write COORDINATES OF EACH SHELL           from file     0 offset           0 length                   6 to matrix element file.
  Write GAUSSIAN SCALARS                    from file   501 offset           0 to matrix element file.
- Write INTEGER ISO                         from file     0 offset           0 length                   2 to matrix element file.
- Write INTEGER SPIN                        from file     0 offset           0 length                   2 to matrix element file.
- Write REAL ZEFFECTIVE                     from file     0 offset           0 length                   2 to matrix element file.
- Write REAL GFACTOR                        from file     0 offset           0 length                   2 to matrix element file.
- Write REAL ZNUCLEAR                       from file     0 offset           0 length                   2 to matrix element file.
- Write NUCLEAR GRADIENT                    from file 10584 offset           0 length                   6 to matrix element file.
+ Write INTEGER ISO                         from file     0 offset           0 length                   3 to matrix element file.
+ Write INTEGER SPIN                        from file     0 offset           0 length                   3 to matrix element file.
+ Write REAL ZEFFECTIVE                     from file     0 offset           0 length                   3 to matrix element file.
+ Write REAL GFACTOR                        from file     0 offset           0 length                   3 to matrix element file.
+ Write REAL ZNUCLEAR                       from file     0 offset           0 length                   3 to matrix element file.
+ Write NUCLEAR GRADIENT                    from file 10584 offset           0 length                   9 to matrix element file.
  Array NUCLEAR FORCE CONSTANTS              on  file 10585 does not exist.
  Write ELECTRIC DIPOLE MOMENT              from file     0 offset           0 length                   3 to matrix element file.
  Write OVERLAP                             from file   514 offset           0 length                   3 to matrix element file.
@@ -314,4 +326,4 @@
  Job cpu time:       0 days  0 hours  0 minutes  0.6 seconds.
  Elapsed time:       0 days  0 hours  0 minutes  0.6 seconds.
  File lengths (MBytes):  RWF=      5 Int=      1 D2E=      0 Chk=      1 Scr=      1
- Normal termination of Gaussian 16 at Fri Jul 29 09:27:41 2022.
+ Normal termination of Gaussian 16 at Thu Jul 28 12:31:17 2022.
